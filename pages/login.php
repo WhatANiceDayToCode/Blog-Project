@@ -23,12 +23,16 @@
 
                 $value = $insert_stmt->fetchAll();
 
+                //Si value != null, ca veux dire que la requete a renvoyé un resultat donc que le redacteur existe
                 if($value != null) 
                 {
                     $redacteur = $value[0];
 
                     $_SESSION['connection'] = true;
                     $_SESSION['pseudo'] =  trim($_POST['pseudo']);
+
+                    //redirection vers l'ancienne page 
+                    //header('Location:'.$_SESSION["provenance"]);
                 }
                 else
                 {
@@ -43,8 +47,11 @@
     </head>
     <body>
         <?php
-            echo $message;
-            echo('<br> <br>');
+            if ($message != "") 
+            {
+                echo $message;
+                echo ("<br><br>");
+            }
         ?>
         <form method="POST" action="">
             Pour pouvoir poster des sujets et répondre au sujet present, merci de saisir vos identifiants : 
