@@ -16,13 +16,28 @@
             if (array_key_exists('pseudo',$_POST) && array_key_exists('password',$_POST)) 
             {
                     //WHERE pseudo = '.$_POST["pseudo"].' AND motDePasse = '.$_POST["password"]
-                    $value = $objPdo->query('SELECT * FROM redacteur WHERE pseudo = '.$_POST["pseudo"].' AND motDePasse = '.$_POST["password"]);
-
+                    $value = $objPdo->query('SELECT * FROM redacteur');
 
                     if ($value != null) 
                     {
-                        $message = "it works";
-                        //header("Location:".$_SESSION['provenance']);  
+                        foreach ($value as $row) 
+                        {
+                            if ($row["pseudo"] == $_POST["pseudo"]) 
+                            {
+                                if ($row["motDePasse"] == $_POST["password"]) 
+                                {
+                                    $valide = true;
+                                }
+                                else 
+                                {
+                                    $message = "Mot de passe incorrect";
+                                }
+                            }
+                            else 
+                            {
+                                $message = "Utilisateur inconnu";
+                            }
+                        }  
                     }
                     else
                     {
