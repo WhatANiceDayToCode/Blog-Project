@@ -10,8 +10,8 @@
             session_start();
             include_once("../connexion/connexion.php");
             $message = "";
-            $value = null;
             $valide = false;
+            $redacteur = null;
 
             if (array_key_exists('pseudo',$_POST) && $_POST['pseudo'] != "" && array_key_exists('password',$_POST) && $_POST['password'] != "") 
             {
@@ -22,10 +22,13 @@
                 $insert_stmt->execute();
 
                 $value = $insert_stmt->fetchAll();
-                
+
                 if($value != null) 
                 {
-                    $valide = true; 
+                    $redacteur = $value[0];
+
+                    $_SESSION['connection'] = true;
+                    $_SESSION['pseudo'] =  trim($_POST['pseudo']);
                 }
                 else
                 {
