@@ -13,37 +13,28 @@
             $value = null;
             $valide = false;
 
-            if (array_key_exists('pseudo',$_POST) && array_key_exists('password',$_POST)) 
+            if (array_key_exists('pseudo',$_POST) && $_POST['pseudo'] != "" && array_key_exists('password',$_POST) && $_POST['password'] != "") 
             {
-                    //WHERE pseudo = '.$_POST["pseudo"].' AND motDePasse = '.$_POST["password"]
-                    $value = $objPdo->query('SELECT * FROM redacteur');
+                $insert_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE pseudo = ? and motDePasse = ?');
 
-                    if ($value != null) 
-                    {
-                        foreach ($value as $row) 
-                        {
-                            if ($row["pseudo"] == $_POST["pseudo"]) 
-                            {
-                                if ($row["motDePasse"] == $_POST["password"]) 
-                                {
-                                    $valide = true;
-                                }
-                                else 
-                                {
-                                    $message = "Mot de passe incorrect";
-                                }
-                            }
-                            else 
-                            {
-                                $message = "Utilisateur inconnu";
-                            }
-                        }  
-                    }
-                    else
-                    {
-                        $message = "Verifier vos identifiant ou votre mot de passe";
-                    }
+                $insert_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
+                $insert_stmt->bindValue(2, trim($_POST['password']), PDO::PARAM_STR);
+                $insert_stmt->execute();
 
+                $value = $insert_stmt->fetchAll();
+                
+                if($value != null) 
+                {
+                    $valide = true; 
+                }
+                else
+                {
+                    $message = "Veuillez verifier votre pseudo et/ou votre mot de passe";
+                }
+            }
+            else
+            {
+                $message = "Veuillez saisir votre pseudo et votre mot de passe";
             }
         ?>
     </head>
@@ -51,18 +42,9 @@
         <?php
             echo $message;
             echo('<br> <br>');
-            if ($value != null) 
-            {
-                foreach ($value as $row) 
-                {
-                   var_dump($row);
-                   echo('<br> <br>');
-                }  
-            }
-            
         ?>
         <form method="POST" action="">
-            Pour acceder au reste du site merci de saisir vos données : 
+            Pour pouvoir poster des sujets et répondre au sujet present, merci de saisir vos identifiants : 
             <br><br>
             Pseudo : <br>
             <input type="text" size="30" name="pseudo"><br>
