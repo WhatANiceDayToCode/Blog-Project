@@ -10,38 +10,40 @@
             session_start();
             include_once("../connexion/connexion.php");
             $message = "";
-            $valide = false;
             $redacteur = null;
 
-            if (array_key_exists('pseudo',$_POST) && $_POST['pseudo'] != "" && array_key_exists('password',$_POST) && $_POST['password'] != "") 
+            if (array_key_exists('pseudo',$_POST) && array_key_exists('password',$_POST)) 
             {
-                $insert_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE pseudo = ? and motDePasse = ?');
-
-                $insert_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
-                $insert_stmt->bindValue(2, trim($_POST['password']), PDO::PARAM_STR);
-                $insert_stmt->execute();
-
-                $value = $insert_stmt->fetchAll();
-
-                //Si value != null, ca veux dire que la requete a renvoyé un resultat donc que le redacteur existe
-                if($value != null) 
+                if ($_POST['pseudo'] != "" && $_POST['password'] != "") 
                 {
-                    $redacteur = $value[0];
+                    $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE pseudo = ? and motDePasse = ?');
 
-                    $_SESSION['connection'] = true;
-                    $_SESSION['pseudo'] =  trim($_POST['pseudo']);
-
-                    //redirection vers l'ancienne page 
-                    //header('Location:'.$_SESSION["provenance"]);
+                    $select_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
+                    $select_stmt->bindValue(2, trim($_POST['password']), PDO::PARAM_STR);
+                    $select_stmt->execute();
+    
+                    $value = $select_stmt->fetchAll();
+    
+                    //Si value != null, ca veux dire que la requete a renvoyé un resultat donc que le redacteur existe
+                    if($value != null) 
+                    {
+                        $redacteur = $value[0];
+    
+                        $_SESSION['connection'] = true;
+                        $_SESSION['pseudo'] =  trim($_POST['pseudo']);
+    
+                        //redirection vers l'ancienne page 
+                        //header('Location:'.$_SESSION["provenance"]);
+                    }
+                    else
+                    {
+                        $message = "Veuillez verifier votre pseudo et/ou votre mot de passe";
+                    }
                 }
                 else
                 {
-                    $message = "Veuillez verifier votre pseudo et/ou votre mot de passe";
-                }
-            }
-            else
-            {
-                $message = "Veuillez saisir votre pseudo et votre mot de passe";
+                    $message = "Veuillez saisir votre identifiant et votre mot de passe";
+                }  
             }
         ?>
     </head>
@@ -61,7 +63,9 @@
             Mot de passe :<br>
             <input type="password" size="30" name="password"><br><br>
 
-            <input type="submit" value ="Connecter">
+            <input type="submit" value ="Connecter"><br><br>
         </form>
+        Vous n'avez pas encore de compte ?
+        <a href="creactionCompte.php"> Créez en un !</a>
     </body>
 </html>
