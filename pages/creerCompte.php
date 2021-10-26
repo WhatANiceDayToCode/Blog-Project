@@ -78,7 +78,8 @@
             <br><input type="text" name="pseudo" id=""><br>
             Mot de Passe : 
             <br><input type="password" name="password" id=""><br><br>
-            <input type="submit" value="Créer">
+            <input type="submit" value="Créer"><br><br>
         </form>
+        <a href="accueil.php">Retour à l'accueil</a>  
     </body>
 </html>
