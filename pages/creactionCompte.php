@@ -56,7 +56,6 @@
     </head>
     <body>
         <?php
-            var_dump($value);
             if ($message != "") 
             {
                 echo $message;
