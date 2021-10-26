@@ -13,39 +13,32 @@
             $message = "";
             $redacteur = null;
 
-            if (array_key_exists('pseudo',$_POST) && array_key_exists('password',$_POST)) 
-            {
-                if ($_POST['pseudo'] != "" && $_POST['password'] != "") 
-                {
-                    $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE pseudo = ? and motDePasse = ?');
+            //Verification que les données sont deja saisies faites dans le JS
 
-                    $select_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
-                    $select_stmt->bindValue(2, trim($_POST['password']), PDO::PARAM_STR);
-                    $select_stmt->execute();
-    
-                    $value = $select_stmt->fetchAll();
-    
-                    //Si value != null, ca veux dire que la requete a renvoyé un resultat donc que le redacteur existe
-                    if($value != null) 
-                    {
-                        $redacteur = $value[0];
-    
-                        $_SESSION['connection'] = true;
-                        $_SESSION['pseudo'] =  trim($_POST['pseudo']);
-    
-                        //redirection vers l'ancienne page 
-                        header('Location:'.$_SESSION["provenance"]);
-                    }
-                    else
-                    {
-                        $message = "Veuillez verifier votre pseudo et/ou votre mot de passe";
-                    }
-                }
-                else
-                {
-                    $message = "Veuillez saisir votre identifiant et votre mot de passe";
-                }  
+            $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE pseudo = ? and motDePasse = ?');
+
+            $select_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
+            $select_stmt->bindValue(2, trim($_POST['password']), PDO::PARAM_STR);
+            $select_stmt->execute();
+
+            $value = $select_stmt->fetchAll();
+
+            //Si value != null, ca veux dire que la requete a renvoyé un resultat donc que le redacteur existe
+            if($value != null) 
+            {
+                $redacteur = $value[0];
+
+                $_SESSION['connection'] = true;
+                $_SESSION['pseudo'] =  trim($_POST['pseudo']);
+
+                //redirection vers l'ancienne page 
+                header('Location:'.$_SESSION["provenance"]);
             }
+            else
+            {
+                $message = "Veuillez verifier votre pseudo et/ou votre mot de passe";
+            }
+
         ?>
     </head>
     <body>
