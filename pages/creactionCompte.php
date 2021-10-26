@@ -35,7 +35,9 @@
                         
                         $insert_stmt->execute();
 
+                        //A Supprimer apres
                         $message = "effectué";
+                        
                         //redirection vers l'ancienne page 
                         //header('Location:'.$_SESSION["provenance"]);
                     }
