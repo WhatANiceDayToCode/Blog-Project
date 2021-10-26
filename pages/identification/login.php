@@ -8,7 +8,7 @@
     
         <?php
             session_start();
-            include_once("../connexion/connexion.php");
+            include_once("../../connexion/connexion.php");
             $message = "";
             $redacteur = null;
 
