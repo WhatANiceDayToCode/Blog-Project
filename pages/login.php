@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Connexion</title>
-    
+        <script language="javascript" type="text/javascript" src="login.js"></script>
+
         <?php
             session_start();
             include_once("../connexion/connexion.php");
@@ -55,7 +56,7 @@
                 echo ("<br><br>");
             }
         ?>
-        <form method="POST" action="">
+        <form method="POST" action="" id="formConnection">
             Pour pouvoir poster des sujets et répondre au sujet present, merci de saisir vos identifiants : 
             <br><br>
             Pseudo : <br>
@@ -63,7 +64,7 @@
             Mot de passe :<br>
             <input type="password" size="30" name="password"><br><br>
 
-            <input type="submit" value ="Connecter"><br><br>
+            <input type="submit" value ="Connecter" onclick="return checkComplete()"><br><br>
         </form>
         Vous n'avez pas encore de compte ?
         <a href="creactionCompte.php"> Créez en un !</a>
