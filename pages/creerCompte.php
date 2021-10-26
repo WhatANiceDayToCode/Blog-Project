@@ -9,6 +9,7 @@
         <?php
             session_start();
             include_once("../connexion/connexion.php");
+            $message = "";
             $valide = true;
 
             if (array_key_exists('nom',$_POST) && array_key_exists('prenom',$_POST) && array_key_exists('mail',$_POST)
@@ -38,8 +39,11 @@
                         //A Supprimer apres
                         $message = "effectué";
                         
+                        $_SESSION['connection'] = true;
+                        $_SESSION['pseudo'] =  trim($_POST['pseudo']);
+
                         //redirection vers l'ancienne page 
-                        //header('Location:'.$_SESSION["provenance"]);
+                        header('Location:'.$_SESSION["provenance"]);
                     }
                     else
                     {

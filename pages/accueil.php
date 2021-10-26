@@ -8,11 +8,32 @@
 
         <?php
             session_start();
-            include_once("../connexion/connexion.php");
+            include_once('../connexion/connexion.php');
+            $message = "";
+            $connecte = false;
+
+            if (array_key_exists('connection', $_SESSION) && $_SESSION['connection']) 
+            {
+                $message = "Connecté";
+                $connecte = true;
+            }
+        
+            $_SESSION['provenance'] = 'accueil.php';
         ?>
     </head>
     <body>
-        <a href="login.php">Se connecter</a><br>
-        <a href="creerCompte.php">Creer un compte</a><br>
+        <?php
+            if (!$connecte) 
+            {
+                echo('<a href="login.php">Se connecter</a><br>');
+                echo('<a href="creerCompte.php">Creer un compte</a><br>');
+            }
+            else
+            {
+                echo $message.'<br>';
+                echo $_SESSION['pseudo'];
+            }
+        ?>
+        <br><a href="deconnexion.php">deconnecter</a>
     </body>
 </html>

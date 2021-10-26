@@ -33,7 +33,7 @@
                         $_SESSION['pseudo'] =  trim($_POST['pseudo']);
     
                         //redirection vers l'ancienne page 
-                        //header('Location:'.$_SESSION["provenance"]);
+                        header('Location:'.$_SESSION["provenance"]);
                     }
                     else
                     {
