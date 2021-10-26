@@ -12,6 +12,7 @@
         ?>
     </head>
     <body>
-        
+        <a href="login.php">Se connecter</a><br>
+        <a href="creationCompte.php">Creer un compte</a><br>
     </body>
 </html>
