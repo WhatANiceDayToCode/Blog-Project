@@ -1,6 +1,7 @@
-<?php           // A supprimer une fois le bouton mis en place
+<?php           
+    // A supprimer une fois le bouton mis en place
     session_start();
     session_destroy();
 
-    header('Location:accueil.php');
+    header('Location:'.$_SESSION['provenance']);
 ?>  

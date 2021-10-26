@@ -31,9 +31,11 @@
             else
             {
                 echo $message.'<br>';
-                echo $_SESSION['pseudo'];
+                echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
+                echo ('<br><br>');
+                echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter"></a>');
             }
         ?>
-        <br><a href="deconnexion.php">deconnecter</a>
     </body>
+    
 </html>
