@@ -66,6 +66,7 @@
             <input type="submit" value ="Connecter" onclick="return checkComplete()"><br><br>
         </form>
         Vous n'avez pas encore de compte ?
-        <a href="creactionCompte.php"> Créez en un !</a>
+        <a href="creactionCompte.php"> Créez en un !</a><br>
+        <a href="accueil.php">Retour à l'accueil</a>
     </body>
 </html>
