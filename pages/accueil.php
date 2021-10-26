@@ -19,8 +19,20 @@
             }
         </script>
         <?php
-            session_start();
+    
+            function getAllSujet()
+            {
+                include('../connexion/connexion.php'); 
+                // Si n'est pas present, la fonction ne detecteras pas la variable $objPd
+                // il est donc necessaire de re importer ce script, peu d'influence car utilisé peu de fois sur cette page
+                // Mais permettras de le copier coller pour les autres
+                
+                return ($objPdo->query('SELECT * FROM sujet'));
+            }
+            
             include_once('../connexion/connexion.php');
+            session_start();
+            $_SESSION['provenance'] = 'accueil.php';
             $message = "";
             $connecte = false;
 
@@ -29,8 +41,6 @@
                 $message = "Connecté";
                 $connecte = true;
             }
-        
-            $_SESSION['provenance'] = 'accueil.php';
         ?>
     </head>
     <body>
@@ -47,6 +57,17 @@
                 echo ('<br><br>');
                 echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return valideSuppr()"></a>');
             }
+
+
+
+            //test affichage tout les sujets
+            $sujetList = getAllSujet();
+
+            foreach ($sujetList as $sujet) 
+            {
+                echo('<br>'.$sujet['idRedacteur'].' '.$sujet['titreSujet'].' '.$sujet['texteSujet'].'<br>');
+            }
+
         ?>
     </body>
     
