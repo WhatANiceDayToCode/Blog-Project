@@ -48,23 +48,35 @@
         ?>
 
         <br><br><br><br>
+        Liste des sujets : 
+        <br><br>
 
         <table>
                 <tr>
                     <td>
-                        Liste des sujets : 
+                        ID sujet
+                    </td>
+                    <td>
+                        Titre
+                    </td>
+                    <td>
+                        Pseudo Redacteur
                     </td>
                 </tr>
                 <?php
-                    //test affichage tout les sujets
+                    //Affichage des sujets 
 
                     $sujetList = $objPdo->query('SELECT * FROM sujet');
 
                     foreach ($sujetList as $sujet) 
                     {
+                        $redacteurSujet = $objPdo->query('SELECT * FROM redacteur WHERE idRedacteur = '.$sujet['idRedacteur']);
+                        $redacteurSujet = $redacteurSujet->fetch();
+
                         echo ('<tr>');
-                        echo ('<td>Sujet numero'.$sujet['idSujet'].'</td>');
+                        echo ('<td>Sujet numéro '.$sujet['idSujet'].'</td>');
                         echo ('<td>'.$sujet['titreSujet'].'</td>');
+                        echo ('<td>Par '.$redacteurSujet['pseudo'].'</td>');
                         echo ('</tr>');
                     }
                 ?>
