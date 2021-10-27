@@ -17,13 +17,13 @@
             {
                 if ($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['mail'] != "" && $_POST['pseudo'] != "" && $_POST['password'] != "") 
                 {
-                    $check_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE (pseudo = ? OR adresseMail = ?)');
+                    $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE (pseudo = ? OR adresseMail = ?)');
 
-                    $check_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
-                    $check_stmt->bindValue(2, trim($_POST['mail']), PDO::PARAM_STR);
-                    $check_stmt->execute();
+                    $select_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
+                    $select_stmt->bindValue(2, trim($_POST['mail']), PDO::PARAM_STR);
+                    $select_stmt->execute();
     
-                    $value = $check_stmt->fetchAll();
+                    $value = $select_stmt->fetchAll();
     
                     //Si value = null, ca veux dire que la requete n'a renvoyé aucun resultat, ce qui veux dire que ce pseudo n'existe pas
                     if($value == null) 

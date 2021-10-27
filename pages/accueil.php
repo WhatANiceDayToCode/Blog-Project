@@ -22,12 +22,10 @@
             include_once('../connexion/connexion.php');
             session_start();
             $_SESSION['provenance'] = 'accueil.php';
-            $message = "";
             $connecte = false;
 
             if (array_key_exists('connection', $_SESSION) && $_SESSION['connection']) 
             {
-                $message = "Connecté";
                 $connecte = true;
             }
         ?>
