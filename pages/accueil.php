@@ -50,7 +50,6 @@
         <br><br><br><br>
 
         <table>
-            <fieldset>
                 <tr>
                     <td>
                         Liste des sujets : 
@@ -69,7 +68,6 @@
                         echo ('</tr>');
                     }
                 ?>
-            </fieldset>
         </table>
     </body>
     
