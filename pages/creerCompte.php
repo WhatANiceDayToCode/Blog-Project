@@ -17,9 +17,10 @@
             {
                 if ($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['mail'] != "" && $_POST['pseudo'] != "" && $_POST['password'] != "") 
                 {
-                    $check_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE pseudo = ?');
+                    $check_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE (pseudo = ? OR adresseMail = ?)');
 
                     $check_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
+                    $check_stmt->bindValue(2, trim($_POST['mail']), PDO::PARAM_STR);
                     $check_stmt->execute();
     
                     $value = $check_stmt->fetchAll();
