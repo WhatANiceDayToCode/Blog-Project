@@ -52,8 +52,10 @@
             }
             else
             {
+                $redacteur = $_SESSION['redacteur'];
+
                 echo $message.'<br>';
-                echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
+                echo ('Bienvenue '.$redacteur['pseudo'].' / '.$redacteur['nom'].' '.$redacteur['prenom']);
                 echo ('<br><br>');
                 echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return valideSuppr()"></a>');
             }
