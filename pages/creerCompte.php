@@ -50,7 +50,7 @@
                     }
                     else
                     {
-                        $message = "Veuillez verifier votre pseudo et/ou votre mot de passe";
+                        $message = "Ce pseudo ou Email existe déjà";
                     }
                 }
                 else

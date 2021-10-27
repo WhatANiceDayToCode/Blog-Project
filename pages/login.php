@@ -61,7 +61,7 @@
         <form method="POST" action="">
             Pour pouvoir poster des sujets et répondre au sujet present, merci de saisir vos identifiants : 
             <br><br>
-            Pseudo ou EMail : <br>
+            Pseudo ou Email : <br>
             <input type="text" size="30" name="pseudo"><br>
             Mot de passe :<br>
             <input type="password" size="30" name="password"><br><br>
