@@ -36,10 +36,18 @@
                     $redacteurSujet = $objPdo->query('SELECT * FROM redacteur WHERE idRedacteur = '.$sujet['idRedacteur']);
                     $redacteurSujet = $redacteurSujet->fetch();
 
-                    echo('Titre : '.$sujet['titreSujet'].' , par le rédacteur : '.$redacteurSujet['pseudo'].'<br><br><br>');
-                    echo('<table><tr><td>'.$sujet['texteSujet'].'</td><td></td></tr>');
+                    $dateSujet = date('d/m/Y', strtotime($sujet['dateSujet']));
 
+                    echo('Titre : '.$sujet['titreSujet'].'<br>Par le rédacteur : '.$redacteurSujet['pseudo'].' le '.$dateSujet.'<br><br><br>');
                     
+                    //Ouverture de la table avec le texte du sujet et les reponses correspondantes
+                    echo('<table>');
+
+                    echo ('<tr><td>'.$sujet['texteSujet'].'</td><td></td></tr>');
+                    //Inclure toute les reponses avec un select et un foreach
+
+                    echo('<table>');
+
                 }
                 else
                 {

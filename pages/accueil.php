@@ -60,6 +60,9 @@
                     <td>
                         Pseudo Redacteur
                     </td>
+                    <td>
+                        Date de création
+                    </td>
                 </tr>
                 <?php
                     //Affichage des sujets 
@@ -71,10 +74,14 @@
                         $redacteurSujet = $objPdo->query('SELECT * FROM redacteur WHERE idRedacteur = '.$sujet['idRedacteur']);
                         $redacteurSujet = $redacteurSujet->fetch();
 
+                        //Permet de convertir la date format SQL (YYYY-MM-DD) en un format européen (DD/MM/YYYY)
+                        $dateSujet = date('d/m/Y', strtotime($sujet['dateSujet']));
+
                         echo ('<tr>');
                         echo ('<td>Sujet numéro '.$sujet['idSujet'].'</td>');
                         echo ('<td>'.$sujet['titreSujet'].'</td>');
                         echo ('<td>Par '.$redacteurSujet['pseudo'].'</td>');
+                        echo ('<td>Créé le '.$dateSujet.'</td>');
                         echo ('<td><a href="discussion.php?idSujet='.$sujet['idSujet'].'"><input type="button" value="Acceder"></a></td>');
                         echo ('</tr>');
                     }
