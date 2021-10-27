@@ -30,7 +30,9 @@
                         $redacteur = $value[0];
     
                         $_SESSION['connection'] = true;
-                        $_SESSION['redacteur'] = $redacteur;
+                        $_SESSION['pseudo'] =  trim($redacteur['pseudo']);
+                        $_SESSION['nom'] =  trim($redacteur['nom']);
+                        $_SESSION['prenom'] =  trim($redacteur['prenom']);
     
                         //redirection vers l'ancienne page 
                         header('Location:'.$_SESSION["provenance"]);

@@ -18,18 +18,7 @@
                 }
             }
         </script>
-        <?php
-    
-            function getAllSujet()
-            {
-                include('../connexion/connexion.php'); 
-                // Si n'est pas present, la fonction ne detecteras pas la variable $objPd
-                // il est donc necessaire de re importer ce script, peu d'influence car utilisé peu de fois sur cette page
-                // Mais permettras de le copier coller pour les autres
-                
-                return ($objPdo->query('SELECT * FROM sujet'));
-            }
-            
+        <?php           
             include_once('../connexion/connexion.php');
             session_start();
             $_SESSION['provenance'] = 'accueil.php';
@@ -52,25 +41,36 @@
             }
             else
             {
-                $redacteur = $_SESSION['redacteur'];
-
-                echo $message.'<br>';
-                echo ('Bienvenue '.$redacteur['pseudo'].' / '.$redacteur['nom'].' '.$redacteur['prenom']);
+                echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
                 echo ('<br><br>');
                 echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return valideSuppr()"></a>');
             }
-
-
-
-            //test affichage tout les sujets
-            $sujetList = getAllSujet();
-
-            foreach ($sujetList as $sujet) 
-            {
-                echo('<br>'.$sujet['idRedacteur'].' '.$sujet['titreSujet'].' '.$sujet['texteSujet'].'<br>');
-            }
-
         ?>
+
+        <br><br><br><br>
+
+        <table>
+            <fieldset>
+                <tr>
+                    <td>
+                        Liste des sujets : 
+                    </td>
+                </tr>
+                <?php
+                    //test affichage tout les sujets
+
+                    $sujetList = $objPdo->query('SELECT * FROM sujet');
+
+                    foreach ($sujetList as $sujet) 
+                    {
+                        echo ('<tr>');
+                        echo ('<td>Sujet numero'.$sujet['idSujet'].'</td>');
+                        echo ('<td>'.$sujet['titreSujet'].'</td>');
+                        echo ('</tr>');
+                    }
+                ?>
+            </fieldset>
+        </table>
     </body>
     
 </html>

@@ -41,8 +41,8 @@
                         
                         $_SESSION['connection'] = true;
                         $_SESSION['pseudo'] =  trim($_POST['pseudo']);
-                        $_SESSION['prenom'] =  trim($_POST['prenom']);
                         $_SESSION['nom'] =  trim($_POST['nom']);
+                        $_SESSION['prenom'] =  trim($_POST['prenom']);
 
                         //redirection vers l'ancienne page 
                         header('Location:'.$_SESSION["provenance"]);
