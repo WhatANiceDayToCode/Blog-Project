@@ -16,10 +16,11 @@
             {
                 if ($_POST['pseudo'] != "" && $_POST['password'] != "") 
                 {
-                    $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE pseudo = ? and motDePasse = ?');
+                    $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE (pseudo = ? OR adresseMail = ?) AND motDePasse = ?');
 
                     $select_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
-                    $select_stmt->bindValue(2, trim($_POST['password']), PDO::PARAM_STR);
+                    $select_stmt->bindValue(2, trim($_POST['pseudo']), PDO::PARAM_STR);
+                    $select_stmt->bindValue(3, trim($_POST['password']), PDO::PARAM_STR);
                     $select_stmt->execute();
     
                     $value = $select_stmt->fetchAll();
@@ -60,7 +61,7 @@
         <form method="POST" action="">
             Pour pouvoir poster des sujets et répondre au sujet present, merci de saisir vos identifiants : 
             <br><br>
-            Pseudo : <br>
+            Pseudo ou EMail : <br>
             <input type="text" size="30" name="pseudo"><br>
             Mot de passe :<br>
             <input type="password" size="30" name="password"><br><br>
