@@ -77,10 +77,10 @@
                         echo ('<td>Sujet numéro '.$sujet['idSujet'].'</td>');
                         echo ('<td>'.$sujet['titreSujet'].'</td>');
                         echo ('<td>Par '.$redacteurSujet['pseudo'].'</td>');
+                        echo ('<td><a href="discussion.php'.$sujet['idSujet'].'"><input type="button" value="Acceder"></a></td>');
                         echo ('</tr>');
                     }
                 ?>
-        </table>
+        </table>   
     </body>
-    
 </html>
