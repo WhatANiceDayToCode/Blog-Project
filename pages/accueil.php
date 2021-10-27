@@ -64,7 +64,7 @@
                 <?php
                     //Affichage des sujets 
 
-                    $sujetList = $objPdo->query('SELECT * FROM sujet');
+                    $sujetList = $objPdo->query('SELECT * FROM sujet ORDER BY dateSujet DESC');
 
                     foreach ($sujetList as $sujet) 
                     {

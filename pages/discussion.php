@@ -9,9 +9,9 @@
         <?php
             include_once('../connexion/connexion.php');
             session_start();
-            $_SESSION['provenance'] = 'discussion.php';
-            $message = "";
+            $_SESSION['provenance'] = 'discussion.php';            
             $connecte = false;
+            $sujet = null;
 
             if (array_key_exists('connection', $_SESSION) && $_SESSION['connection']) 
             {
@@ -28,11 +28,18 @@
 
                 $select_stmt->execute();
 
-                $result = $select_stmt->fetchAll();
+            
+                $sujet = $select_stmt->fetch();
 
-                if ($result != null)
+                if ($sujet != null)
                 {
-                    echo ('T\'es au bon endroit mon reuf');
+                    $redacteurSujet = $objPdo->query('SELECT * FROM redacteur WHERE idRedacteur = '.$sujet['idRedacteur']);
+                    $redacteurSujet = $redacteurSujet->fetch();
+
+                    echo('Titre : '.$sujet['titreSujet'].' , par le rédacteur : '.$redacteurSujet['pseudo'].'<br><br><br>');
+                    echo('<table><tr><td>'.$sujet['texteSujet'].'</td><td></td></tr>');
+
+                    
                 }
                 else
                 {
