@@ -23,6 +23,7 @@
         <?php
             if (array_key_exists('idSujet', $_GET)) 
             {
+                //On recupere uniquement les attributs necessaires ainsi que le pseudo du redacteur
                 $select_stmt = $objPdo->prepare('SELECT titreSujet, texteSujet, pseudo, dateSujet 
                                                  FROM sujet s, redacteur r
                                                  WHERE idSujet = ? 
@@ -39,11 +40,11 @@
                     $dateSujet = date('d/m/Y', strtotime($sujet['dateSujet']));
 
                     echo('Titre : '.$sujet['titreSujet'].'<br>Par le rédacteur : '.$sujet['pseudo'].' le '.$dateSujet.'<br><br><br>');
-                    
+
                     //Ouverture de la table avec le texte du sujet et les reponses correspondantes
                     echo('<table>');
 
-                    echo ('<tr><td>'.$sujet['texteSujet'].'</td><td></td></tr>');
+                    echo ('<tr><td>'.$sujet['texteSujet'].'</td><td></td></tr>'); 
                     //Inclure toute les reponses avec un select et un foreach
 
                     echo('<table>');
