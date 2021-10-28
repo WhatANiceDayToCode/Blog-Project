@@ -23,7 +23,10 @@
         <?php
             if (array_key_exists('idSujet', $_GET)) 
             {
-                $select_stmt = $objPdo->prepare('SELECT * FROM sujet WHERE idSujet = ?');
+                $select_stmt = $objPdo->prepare('SELECT titreSujet, texteSujet, pseudo, dateSujet 
+                                                 FROM sujet s, redacteur r
+                                                 WHERE idSujet = ? 
+                                                 AND s.idRedacteur = r.idRedacteur');
                 $select_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
 
                 $select_stmt->execute();
@@ -33,12 +36,9 @@
 
                 if ($sujet != null)
                 {
-                    $redacteurSujet = $objPdo->query('SELECT * FROM redacteur WHERE idRedacteur = '.$sujet['idRedacteur']);
-                    $redacteurSujet = $redacteurSujet->fetch();
-
                     $dateSujet = date('d/m/Y', strtotime($sujet['dateSujet']));
 
-                    echo('Titre : '.$sujet['titreSujet'].'<br>Par le rédacteur : '.$redacteurSujet['pseudo'].' le '.$dateSujet.'<br><br><br>');
+                    echo('Titre : '.$sujet['titreSujet'].'<br>Par le rédacteur : '.$sujet['pseudo'].' le '.$dateSujet.'<br><br><br>');
                     
                     //Ouverture de la table avec le texte du sujet et les reponses correspondantes
                     echo('<table>');
