@@ -13,7 +13,7 @@
             $_SESSION['provenance'] = 'discussion.php';
             $connecte = false;
             $sujet = null;
-            $pseudo =""
+            $pseudo = "";
 
             if (array_key_exists('connection', $_SESSION) && $_SESSION['connection']) 
             {
