@@ -18,6 +18,16 @@
         $connecte = true;
     }
 
+    // Y'a de l'idée mais ça fonctionne pas (nombre de paramètres je pense)
+    if (array_key_exists('commentaire', $_POST)) {
+        $commentaire = $_POST['commentaire'];
+
+
+        // Préparation insertion
+        $insert_stmt = $objPdo->prepare("INSERT INTO reponse (texteReponse) VALUES( ? )");
+
+        $insert_stmt->bindValue(1, $commentaire, PDO::PARAM_STR);
+    }
     ?>
 </head>
 
@@ -46,18 +56,23 @@
             //Ouverture de la table avec le texte du sujet et les reponses correspondantes
             echo ('<table>');
 
-            echo ('<tr><td>' . $sujet['texteSujet'] . '</td><td></td></tr>');
+            echo ('<tr><td colspan=2>' . $sujet['texteSujet'] . '</td></tr>');
             //Inclure toute les reponses avec un select et un foreach
 
             $idSujet = $_GET['idSujet'];
+            // $pseudo = $_GET['   SELECT pseudo
+            //                     FROM redacteur
+            //                     WHERE redacteur.idRedacteur = reponse.idRedacteur
+            //                     '];
+
             //echo $idSujet; <-- juste un test de vérif
-            
+
             $result = $objPdo->query('  SELECT * 
                                         FROM reponse
                                         WHERE idSujet = ' . $idSujet);
             foreach ($result as $row) {
                 echo ('<tr>');
-                //echo ('<td>' . $row["pseudo"] . '</td>');
+                echo ('<td>' . $row["idRedacteur"] . '</td>');
                 echo ('<td>' . $row["texteReponse"] . '</td>');
                 echo ('</tr>');
             }
@@ -83,7 +98,7 @@
 
                 echo ('</form>');
             } else {
-                echo('<h2> Veuillez vous connecter pour pouvoir ajouter un commentaire </h2>');
+                echo ('<h2> Veuillez vous connecter pour pouvoir ajouter un commentaire </h2>');
             }
 
 
