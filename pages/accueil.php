@@ -76,7 +76,7 @@
                     foreach ($sujetList as $sujet) 
                     {
                         //Permet de convertir la date format SQL (YYYY-MM-DD) en un format européen (DD/MM/YYYY)
-                        $dateSujet = date('d/m/Y', strtotime($sujet['dateSujet']));
+                        $dateSujet = date('d/m/Y à h:i:s', strtotime($sujet['dateSujet']));
 
                         echo ('<tr>');
                         echo ('<td>Sujet numéro '.$sujet['idSujet'].'</td>');

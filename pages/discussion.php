@@ -19,6 +19,8 @@
         $sujet = null;
         $pseudo = "";
 
+
+
         if (array_key_exists('connection', $_SESSION) && $_SESSION['connection']) 
         {
             $connecte = true;
@@ -37,12 +39,12 @@
             {
                 // Recuperer l'ID du redacteur
                 $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
-                $select_stmt->bindValue(1, trim($pseudo), PDO::PARAM_INT);
+                $select_stmt->bindValue(1, trim($pseudo), PDO::PARAM_STR);
                 $select_stmt->execute();
                 $idRedacteur = $select_stmt->fetch()['idRedacteur'];
 
-
-                $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,texteReponse) VALUES(? ,? ,?)");
+                // Inserer la reponse dans la BD
+                $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) VALUES(? ,? ,CURRENT_TIMESTAMP() ,?)");
                 $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
                 $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
                 $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
@@ -71,7 +73,7 @@
             // Affichage des sujets
             if ($sujet != null) 
             {
-                $dateSujet = date('d/m/Y', strtotime($sujet['dateSujet']));
+                $dateSujet = date('d/m/Y à h:i:s', strtotime($sujet['dateSujet']));
 
                 echo ('Titre : ' . $sujet['titreSujet'] . '<br>Par le rédacteur : ' . $sujet['pseudo'] . ' le ' . $dateSujet . '<br><br><br>');
                 //Ouverture de la table avec le texte du sujet et les reponses correspondantes
@@ -80,7 +82,7 @@
                 echo ('<tr><td>' . $sujet['texteSujet'] . '</td></tr>');
 
                 //Inclure toute les reponses avec un select et un foreach
-                $result = $objPdo->query('SELECT texteReponse, pseudo 
+                $result = $objPdo->query('SELECT texteReponse, dateRep, pseudo 
                                          FROM reponse rep, redacteur redac
                                          WHERE idSujet = '.$sujet['idSujet'].'
                                          AND rep.idRedacteur = redac.idRedacteur
@@ -94,12 +96,14 @@
                 {
                     foreach ($result as $row) 
                     {
+                        $dateSujet = date('d/m/Y à h:i:s', strtotime($sujet['dateRep']));
+
                         echo ('<tr>');
                         if ($row['pseudo'] != $sujet['pseudo']) 
                         {
                             echo ('<td></td>');
                         }
-                        echo ('<td>' . $row["texteReponse"] . '<br> Par ' . $row["pseudo"] . '<br><br></td>');
+                        echo ('<td>'.$row["texteReponse"].'<br> Par '.$row["pseudo"].' à '.$dateSujet.'<br><br></td>');
                         echo ('</tr>');
                     }
                 }
