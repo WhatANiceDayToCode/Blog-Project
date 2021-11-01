@@ -54,7 +54,7 @@
 
             // Insertion
             $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
-            $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_STR);
+            $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
             $insert_stmt->bindValue(3, $dateRep, PDO::PARAM_STR);
             $insert_stmt->bindValue(4, $texteRep, PDO::PARAM_STR);
             $insert_stmt->execute();
@@ -106,7 +106,7 @@
                 echo ('</form>');
 
             } else {
-                
+
                 echo ('<br><br>');
                 echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire');
 
