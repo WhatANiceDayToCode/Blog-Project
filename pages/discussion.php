@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- php ici pour modifier le titre de la page  -->
+                                                        <!-- php ici pour modifier le titre de la page  -->
     <title>Sujet</title>
     <?php
         include_once('../connexion/connexion.php');
@@ -25,10 +25,22 @@
             $pseudo = $_SESSION['pseudo'];
         }
 
-        if ($connecte && array_key_exists('idSujet', $_GET) && false) 
+        // Dans le cas ou l'on recharge la page et que l'on vient de publier un commentaire
+        if ($connecte && array_key_exists('idSujet', $_GET)) 
         {
-            // Préparation insertion
-            /* Pour insérer il nous faut :
+            // 
+            if ($_POST['reponse'] == "") 
+            {
+                //Cas de la reponse vide ?
+            }
+            else
+            {
+                 
+            }
+            
+            /*
+            Préparation insertion
+             Pour insérer il nous faut :
                 * Récupérer : 
                 * l'id du sujet
                 * l'id du rédacteur
@@ -36,21 +48,22 @@
                 --> déjà existants
                 * le texteReponse
                 --> dans le textArea
-                */
+                
                 $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) 
                 VALUES( ? , ? , ? , ? )");
 
-            // Paramètres utilisés
+             Paramètres utilisés
             $idRedacteur = "";
             $dateRep = "SELECT DATE(NOW());";
             $texteRep = $_POST['reponse'];
 
-            // Insertion
+             Insertion
             $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
             $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
             $insert_stmt->bindValue(3, $dateRep, PDO::PARAM_STR);
             $insert_stmt->bindValue(4, $texteRep, PDO::PARAM_STR);
             $insert_stmt->execute();
+            */
         }
 
     ?>
@@ -58,7 +71,6 @@
 
 <body>
     <?php
-        echo($_SERVER['PHP_SELF']);
         if (array_key_exists('idSujet', $_GET)) 
         {
             // On recupere uniquement les attributs necessaires ainsi que le pseudo du redacteur
