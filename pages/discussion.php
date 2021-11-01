@@ -100,13 +100,17 @@
                     } 
                     else 
                     {
+                        echo('<br><br>');
                         echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire');
                         
-                        /*
+                        // Proposition de connexion
+                        echo('<br>');
+                        echo('<p><a href="login.php">Connexion</a>');
 
-                        PROPOSER LA CONNEXON ICI
-
-                        */
+                        // Ou d'inscription !
+                        //echo('<br>');
+                        echo('  Pas de compte ? : ');
+                        echo('<a href="creerCompte.php"> Inscription </a></p>');
                     }
 
 
