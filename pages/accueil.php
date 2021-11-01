@@ -47,7 +47,7 @@
             }
         ?>
 
-        <br><br><br><br>
+        <br><br>
         Liste des sujets : 
         <br><br>
 
