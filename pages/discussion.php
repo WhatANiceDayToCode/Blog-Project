@@ -94,16 +94,16 @@
 
                 if ($result != null) 
                 {
-                    foreach ($result as $row) 
+                    foreach ($result as $reponse) 
                     {
-                        $dateSujet = date('d/m/Y à h:i:s', strtotime($sujet['dateRep']));
+                        $dateSujet = date('d/m/Y à h:i:s', strtotime($reponse['dateRep']));
 
                         echo ('<tr>');
-                        if ($row['pseudo'] != $sujet['pseudo']) 
+                        if ($reponse['pseudo'] != $sujet['pseudo']) 
                         {
                             echo ('<td></td>');
                         }
-                        echo ('<td>'.$row["texteReponse"].'<br> Par '.$row["pseudo"].' à '.$dateSujet.'<br><br></td>');
+                        echo ('<td>'.$reponse["texteReponse"].'<br> Par '.$reponse["pseudo"].' à '.$dateSujet.'<br><br></td>');
                         echo ('</tr>');
                     }
                 }

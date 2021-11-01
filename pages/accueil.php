@@ -42,6 +42,8 @@
                 echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
                 echo ('<br><br>');
                 echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter"></a>');
+                echo ('<br><br>');
+                echo ('<a href="XXXXXXXXX"><input type="button" value="Créer un sujet"></a>');
             }
         ?>
 
