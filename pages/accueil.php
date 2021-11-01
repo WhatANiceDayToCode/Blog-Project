@@ -34,14 +34,14 @@
         <?php
             if (!$connecte) 
             {
-                echo('<a href="login.php">Se connecter</a><br>');
-                echo('<a href="creerCompte.php">Creer un compte</a><br>');
+                echo('<a href="login.php"><input type="button" value="Se connecter"></a><br>');
+                echo('<a href="creerCompte.php"><input type="button" value="Créer un compte"></a><br>');
             }
             else
             {
                 echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
                 echo ('<br><br>');
-                echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return valideSuppr()"></a>');
+                echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter"></a>');
             }
         ?>
 
