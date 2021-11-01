@@ -26,7 +26,7 @@
         }
 
         // Dans le cas ou l'on recharge la page et que l'on vient de publier un commentaire
-        if ($connecte && array_key_exists('idSujet', $_GET)) 
+        if ($connecte && array_key_exists('idSujet', $_GET) && array_key_exists('reponse', $_POST)) 
         {
             // 
             if ($_POST['reponse'] == "") 
@@ -35,9 +35,16 @@
             }
             else
             {
+                // Recuperer l'ID du redacteur
+                $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
+                $select_stmt->bindValue(1, trim($pseudo), PDO::PARAM_INT);
+                $select_stmt->execute();
+                $idRedacteur = $select_stmt->fetch()['idRedacteur'];
+
+
                 $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,texteReponse) VALUES(? ,? ,?)");
                 $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
-                $insert_stmt->bindValue(2, 1, PDO::PARAM_INT);
+                $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
                 $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
                 $insert_stmt->execute();
             }
@@ -77,7 +84,7 @@
                                          FROM reponse rep, redacteur redac
                                          WHERE idSujet = '.$sujet['idSujet'].'
                                          AND rep.idRedacteur = redac.idRedacteur
-                                         ORDER BY dateRep DESC');
+                                         ORDER BY dateRep ASC');
 
 
                     // La passer en prepared
