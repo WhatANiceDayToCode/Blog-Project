@@ -119,58 +119,6 @@
                 echo ('  Pas de compte ? : ');
                 echo ('<a href="creerCompte.php"> Inscription </a></p>');
             }
-                    //Inclure toute les reponses avec un select et un foreach
-                    $result = $objPdo->query('SELECT texteReponse, pseudo 
-                                              FROM reponse rep, redacteur redac
-                                              WHERE idSujet = '.$sujet['idSujet'].'
-                                              AND rep.idRedacteur = redac.idRedacteur');
-                    
-                    if ($result != null) 
-                    {
-                        foreach ($result as $row) 
-                        {
-                            echo ('<tr>');
-                            if ($row['pseudo'] != $sujet['pseudo']) 
-                            {
-                                echo ('<td></td>');
-                            }
-                            echo ('<td>'.$row["texteReponse"].'<br> Par '.$row["pseudo"].'<br><br></td>');
-                            echo ('</tr>');
-                        }    
-                    }
-                    
-                    echo ('<table>');
-
-                    // Afficher la saisie de commentaire uniquement si l'on est connecté
-                    if ($connecte) 
-                    {
-                        // Section reponse
-                        echo ('<br>');
-                        echo ('<h3>Ajouter un commentaire</h3>');
-
-                        echo ('<form method="POST">');
-                        //Affichage du pseudo, et d'un formulaire de commentaire
-                        echo ('Votre pseudo : '.$pseudo.'<br><br>');
-
-                        echo ('<textarea name="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea><br><br>');
-                        echo ('<input type="submit" value="Poster ma réponse" name="submit_reponse"/>');
-
-                        echo ('</form>');
-                    } 
-                    else 
-                    {
-                        echo('<br><br>');
-                        echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire');
-                        
-                        // Proposition de connexion
-                        echo('');
-                        echo('<a href="login.php"><input type="button" value="Se connecter"></a><br>');
-
-                        // Ou d'inscription !
-                        echo('');
-                        echo('<br>Pas de compte ? : ');
-                        echo('<a href="creerCompte.php"> Inscription </a></p>');
-                    }
 
             echo ('<br /><br />');
         } else {
