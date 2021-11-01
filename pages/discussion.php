@@ -8,32 +8,25 @@
     <!-- php ici pour modifier le titre de la page  -->
     <title>Sujet</title>
     <?php
-    include_once('../connexion/connexion.php');
-    session_start();
-    $_SESSION['provenance'] = 'discussion.php';
-    $connecte = false;
-    $sujet = null;
-    $pseudo = "";
-    ?>
-</head>
+        include_once('../connexion/connexion.php');
+        session_start();
+        $_SESSION['provenance'] = 'discussion.php';
+        if (array_key_exists('idSujet', $_GET)) 
+        {  
+            $_SESSION['provenance'] = $_SESSION['provenance'].'?idSujet='.$_GET['idSujet'];
+        }
+        $connecte = false;
+        $sujet = null;
+        $pseudo = "";
 
-<body>
-    <?php
-    if (array_key_exists('idSujet', $_GET)) {
-        // On recupere uniquement les attributs necessaires ainsi que le pseudo du redacteur
-        $select_stmt = $objPdo->prepare('SELECT idSujet, titreSujet, texteSujet, pseudo, dateSujet 
-                                         FROM sujet s, redacteur r
-                                         WHERE idSujet = ? 
-                                         AND s.idRedacteur = r.idRedacteur');
-        $select_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
-
-        $select_stmt->execute();
-
-        $sujet = $select_stmt->fetch();
-        if (array_key_exists('connection', $_SESSION) && $_SESSION['connection']) {
+        if (array_key_exists('connection', $_SESSION) && $_SESSION['connection']) 
+        {
             $connecte = true;
             $pseudo = $_SESSION['pseudo'];
+        }
 
+        if ($connecte && array_key_exists('idSujet', $_GET) && false) 
+        {
             // Préparation insertion
             /* Pour insérer il nous faut :
                 * Récupérer : 
@@ -44,8 +37,8 @@
                 * le texteReponse
                 --> dans le textArea
                 */
-            $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) 
-                                        VALUES( ? , ? , ? , ? )");
+                $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) 
+                VALUES( ? , ? , ? , ? )");
 
             // Paramètres utilisés
             $idRedacteur = "";
@@ -60,74 +53,103 @@
             $insert_stmt->execute();
         }
 
-        if ($sujet != null) {
-            $dateSujet = date('d/m/Y', strtotime($sujet['dateSujet']));
+    ?>
+</head>
 
-            echo ('Titre : ' . $sujet['titreSujet'] . '<br>Par le rédacteur : ' . $sujet['pseudo'] . ' le ' . $dateSujet . '<br><br><br>');
-            //Ouverture de la table avec le texte du sujet et les reponses correspondantes
-            echo ('<table>');
+<body>
+    <?php
+        echo($_SERVER['PHP_SELF']);
+        if (array_key_exists('idSujet', $_GET)) 
+        {
+            // On recupere uniquement les attributs necessaires ainsi que le pseudo du redacteur
+            $select_stmt = $objPdo->prepare('SELECT idSujet, titreSujet, texteSujet, pseudo, dateSujet 
+                                            FROM sujet s, redacteur r
+                                            WHERE idSujet = ? 
+                                            AND s.idRedacteur = r.idRedacteur');
+            $select_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
 
-            echo ('<tr><td>' . $sujet['texteSujet'] . '</td></tr>');
+            $select_stmt->execute();
 
-            //Inclure toute les reponses avec un select et un foreach
-            $result = $objPdo->query('SELECT texteReponse, pseudo 
-                                              FROM reponse rep, redacteur redac
-                                              WHERE idSujet = ' . $sujet['idSujet'] . '
-                                              AND rep.idRedacteur = redac.idRedacteur');
+            $sujet = $select_stmt->fetch();
+            
+            // Affichage des sujets
+            if ($sujet != null) 
+            {
+                $dateSujet = date('d/m/Y', strtotime($sujet['dateSujet']));
 
-            if ($result != null) {
-                foreach ($result as $row) {
-                    echo ('<tr>');
-                    if ($row['pseudo'] != $sujet['pseudo']) {
-                        echo ('<td></td>');
+                echo ('Titre : ' . $sujet['titreSujet'] . '<br>Par le rédacteur : ' . $sujet['pseudo'] . ' le ' . $dateSujet . '<br><br><br>');
+                //Ouverture de la table avec le texte du sujet et les reponses correspondantes
+                echo ('<table>');
+
+                echo ('<tr><td>' . $sujet['texteSujet'] . '</td></tr>');
+
+                //Inclure toute les reponses avec un select et un foreach
+                $result = $objPdo->query('SELECT texteReponse, pseudo 
+                                        FROM reponse rep, redacteur redac
+                                        WHERE idSujet = '.$sujet['idSujet'].'
+                                        AND rep.idRedacteur = redac.idRedacteur');
+
+                if ($result != null) 
+                {
+                    foreach ($result as $row) 
+                    {
+                        echo ('<tr>');
+                        if ($row['pseudo'] != $sujet['pseudo']) 
+                        {
+                            echo ('<td></td>');
+                        }
+                        echo ('<td>' . $row["texteReponse"] . '<br> Par ' . $row["pseudo"] . '<br><br></td>');
+                        echo ('</tr>');
                     }
-                    echo ('<td>' . $row["texteReponse"] . '<br> Par ' . $row["pseudo"] . '<br><br></td>');
-                    echo ('</tr>');
                 }
-            }
 
-            echo ('<table>');
+                echo ('<table>');
 
 
-            // Afficher la saisie de commentaire uniquement si l'on est connecté
-            if ($connecte) {
-                // Section reponse
-                echo ('<br>');
-                echo ('<h3>Ajouter un commentaire</h3>');
+                // Afficher la saisie de commentaire uniquement si l'on est connecté
+                if ($connecte) 
+                {
+                    // Section reponse
+                    echo ('<br>');
+                    echo ('<h3>Ajouter un commentaire</h3>');
 
-                echo ('<form method="POST">');
+                    echo ('<form method="POST">');
 
-                //Affichage du pseudo, et d'un formulaire de commentaire
-                echo ('Votre pseudo : ' . $pseudo . '<br><br>');
+                    //Affichage du pseudo, et d'un formulaire de commentaire
+                    echo ('Votre pseudo : ' . $pseudo . '<br><br>');
 
-                echo ('<textarea name="reponse" value="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea><br><br>');
-                echo ('<input type="submit" value="Poster ma réponse" name="submit_reponse"/>');
+                    echo ('<textarea name="reponse" value="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea><br><br>');
+                    echo ('<input type="submit" value="Poster ma réponse" name="submit_reponse"/>');
 
-                echo ('</form>');
+                    echo ('</form>');
 
-            } else {
+                } 
+                else 
+                {
+                    echo ('<br><br>');
+                    echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire<br><br>');
+
+                    // Proposition de connexion
+                    echo ('<a href="login.php"><input type="button" value="Se connecter"></a><br>');
+
+                    // Ou d'inscription !
+                    echo ('<br>Pas de compte ?<br>');
+                    echo ('<a href="creerCompte.php"><input type="button" value="Créer un compte"></a>');
+                }
 
                 echo ('<br><br>');
-                echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire');
-
-                // Proposition de connexion
-                echo ('<br>');
-                echo ('<p><a href="login.php">Connexion</a>');
-
-                // Ou d'inscription !
-                //echo('<br>');
-                echo ('  Pas de compte ? : ');
-                echo ('<a href="creerCompte.php"> Inscription </a></p>');
+            } 
+            else 
+            {
+                echo ("Aucun sujet n'existe avec ce code, merci de revenir à l'accueil<br><br>");
             }
-
-            echo ('<br /><br />');
-        } else {
-            echo ("Il y a une erreur dans le chargement de la page, merci de revenir à l'accueil<br><br>");
-            echo ('<a href="accueil.php"><input type="button" value="Retour a l\'accueil"></a>');
         }
-    }
+        else 
+        {
+            echo ("Il y a une erreur dans le chargement de la page, merci de revenir à l'accueil<br><br>");
+        }
     ?>
-    <a href="accueil.php">Retour à l'accueil</a>
+    <a href="accueil.php"><input type="button" value="Retour a l'accueil"></a>
 </body>
 
 </html>
