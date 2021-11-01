@@ -35,35 +35,12 @@
             }
             else
             {
-                 
+                $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,texteReponse) VALUES(? ,? ,?)");
+                $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
+                $insert_stmt->bindValue(2, 1, PDO::PARAM_INT);
+                $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
+                $insert_stmt->execute();
             }
-            
-            /*
-            Préparation insertion
-             Pour insérer il nous faut :
-                * Récupérer : 
-                * l'id du sujet
-                * l'id du rédacteur
-                * la date de réponse : SELECT DATE(NOW());
-                --> déjà existants
-                * le texteReponse
-                --> dans le textArea
-                
-                $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) 
-                VALUES( ? , ? , ? , ? )");
-
-             Paramètres utilisés
-            $idRedacteur = "";
-            $dateRep = "SELECT DATE(NOW());";
-            $texteRep = $_POST['reponse'];
-
-             Insertion
-            $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
-            $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
-            $insert_stmt->bindValue(3, $dateRep, PDO::PARAM_STR);
-            $insert_stmt->bindValue(4, $texteRep, PDO::PARAM_STR);
-            $insert_stmt->execute();
-            */
         }
 
     ?>
@@ -97,9 +74,14 @@
 
                 //Inclure toute les reponses avec un select et un foreach
                 $result = $objPdo->query('SELECT texteReponse, pseudo 
-                                        FROM reponse rep, redacteur redac
-                                        WHERE idSujet = '.$sujet['idSujet'].'
-                                        AND rep.idRedacteur = redac.idRedacteur');
+                                         FROM reponse rep, redacteur redac
+                                         WHERE idSujet = '.$sujet['idSujet'].'
+                                         AND rep.idRedacteur = redac.idRedacteur
+                                         ORDER BY dateRep DESC');
+
+
+                    // La passer en prepared
+
 
                 if ($result != null) 
                 {
