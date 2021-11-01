@@ -40,7 +40,7 @@
             if (array_key_exists('idSujet', $_GET)) 
             {
                 //On recupere uniquement les attributs necessaires ainsi que le pseudo du redacteur
-                $select_stmt = $objPdo->prepare('SELECT titreSujet, texteSujet, pseudo, dateSujet 
+                $select_stmt = $objPdo->prepare('SELECT idSujet, titreSujet, texteSujet, pseudo, dateSujet 
                                                         FROM sujet s, redacteur r
                                                         WHERE idSujet = ? 
                                                         AND s.idRedacteur = r.idRedacteur');
@@ -61,46 +61,52 @@
                     echo ('<tr><td>' . $sujet['texteSujet'] . '</td></tr>');
 
                     //Inclure toute les reponses avec un select et un foreach
-
-
-
-                    $result = $objPdo->query('  SELECT * 
-                                                FROM reponse
-                                                WHERE idSujet = ' . $idSujet);
+                    $result = $objPdo->query('SELECT texteReponse, pseudo 
+                                              FROM reponse rep, redacteur redac
+                                              WHERE idSujet = '.$sujet['idSujet'].'
+                                              AND rep.idRedacteur = redac.idRedacteur');
                     
                     if ($result != null) 
                     {
                         foreach ($result as $row) 
                         {
                             echo ('<tr>');
-                            echo ('<td>' . $row["idRedacteur"] . '</td>');
-                            echo ('<td>' . $row["texteReponse"] . '</td>');
+                            if ($row['pseudo'] != $sujet['pseudo']) 
+                            {
+                                echo ('<td></td>');
+                            }
+                            echo ('<td>'.$row["texteReponse"].'<br> Par '.$row["pseudo"].'<br><br></td>');
                             echo ('</tr>');
                         }    
                     }
                     
                     echo ('<table>');
 
-                    if ($connecte) {
-                        // Section commentaires
+                    // Afficher la saisie de commentaire uniquement si l'on est connecté
+                    if ($connecte) 
+                    {
+                        // Section reponse
                         echo ('<br>');
-                        echo ('<h1>Commentaires</h1>');
+                        echo ('<h3>Ajouter un commentaire</h3>');
 
                         echo ('<form method="POST">');
                         //Affichage du pseudo, et d'un formulaire de commentaire
-                        echo ('<h2>Votre pseudo : ' . $pseudo . '</h2>
-                            <textarea name="commentaire" placeholder="Votre commentaire..."></textarea>
-                            
-                            <br />
+                        echo ('Votre pseudo : '.$pseudo.'<br><br>');
 
-                            <input type="submit" value="Poster mon commentaire" name="submit_commentaire" />
-                            <a href="accueil.php">
-                                <input type="button" value="Retour" name="Retour">
-                            </a>');
+                        echo ('<textarea name="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea><br><br>');
+                        echo ('<input type="submit" value="Poster ma réponse" name="submit_reponse"/>');
 
                         echo ('</form>');
-                    } else {
-                        echo ('<h2> Veuillez vous connecter pour pouvoir ajouter un commentaire </h2>');
+                    } 
+                    else 
+                    {
+                        echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire');
+                        
+                        /*
+
+                        PROPOSER LA CONNEXON ICI
+
+                        */
                     }
 
 
@@ -111,6 +117,6 @@
                 }
             }
         ?>
-
+        <a href="accueil.php">Retour à l'accueil</a>
     </body>
 </html>
