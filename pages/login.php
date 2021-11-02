@@ -64,10 +64,8 @@
             <br>
             <hr>
             <br>
-            Pseudo ou Email : <br>
             <input class="input" type="text" size="30" name="pseudo" placeholder="Pseudo ou Email"><br>
             <br>
-            Mot de passe : <br>
             <input class="input" type="password" size="30" name="password" placeholder="Mot de Passe"><br><br>
 
             <?php
