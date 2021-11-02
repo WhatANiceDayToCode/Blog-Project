@@ -25,12 +25,13 @@
                     $idRedacteur = $select_stmt->fetch()['idRedacteur'];
 
                     // Inserer la reponse dans la BD
-                    $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) VALUES(? ,? ,CURRENT_TIMESTAMP() ,?)");
-                    $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
-                    $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
-                    $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
+                    $insert_stmt = $objPdo->prepare("INSERT INTO sujet (idRedacteur,titreSujet,texteSujet,dateSujet) VALUES(? ,? ,? ,CURRENT_TIMESTAMP())");
+                    $insert_stmt->bindValue(1, $idRedacteur, PDO::PARAM_INT);
+                    $insert_stmt->bindValue(2, trim($_POST['titre']), PDO::PARAM_STR);
+                    $insert_stmt->bindValue(3, trim($_POST['texteSujet']), PDO::PARAM_STR);
                     $insert_stmt->execute();
 
+                    header('Location:');
                 }
                 else
                 {
