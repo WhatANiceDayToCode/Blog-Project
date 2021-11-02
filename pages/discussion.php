@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                                        <!-- php ici pour modifier le titre de la page  -->
     <title>Sujet</title>
     <?php
         include_once('../connexion/connexion.php');
@@ -28,28 +27,20 @@
         }
 
         // Dans le cas ou l'on recharge la page et que l'on vient de publier un commentaire
-        if ($connecte && array_key_exists('idSujet', $_GET) && array_key_exists('reponse', $_POST)) 
+        if ($connecte && array_key_exists('idSujet', $_GET) && array_key_exists('reponse', $_POST) && $_POST['reponse'] != "") 
         {
-            // 
-            if ($_POST['reponse'] == "") 
-            {
-                //Cas de la reponse vide ?
-            }
-            else
-            {
-                // Recuperer l'ID du redacteur
-                $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
-                $select_stmt->bindValue(1, trim($pseudo), PDO::PARAM_STR);
-                $select_stmt->execute();
-                $idRedacteur = $select_stmt->fetch()['idRedacteur'];
+            // Recuperer l'ID du redacteur
+            $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
+            $select_stmt->bindValue(1, trim($pseudo), PDO::PARAM_STR);
+            $select_stmt->execute();
+            $idRedacteur = $select_stmt->fetch()['idRedacteur'];
 
-                // Inserer la reponse dans la BD
-                $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) VALUES(? ,? ,CURRENT_TIMESTAMP() ,?)");
-                $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
-                $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
-                $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
-                $insert_stmt->execute();
-            }
+            // Inserer la reponse dans la BD
+            $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) VALUES(? ,? ,CURRENT_TIMESTAMP() ,?)");
+            $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
+            $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
+            $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
+            $insert_stmt->execute();
         }
 
     ?>
