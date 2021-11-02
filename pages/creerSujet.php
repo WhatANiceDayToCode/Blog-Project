@@ -11,6 +11,7 @@
             include_once("../connexion/connexion.php");
             $message = "";
             $connecte = $_SESSION['connection'];
+            $valide = true;
 
             if ($connecte && array_key_exists('titre', $_POST) && array_key_exists('texteSujet', $_POST)) 
             {
@@ -35,7 +36,7 @@
                 }
                 else
                 {
-                    //Mettre une variable a vrai pour re affecter les champs
+                    $valide = false;
                     $message = "Merci de bien saisir tout les champs afin de pouvoir créer le sujet";
                 }
             }
@@ -51,11 +52,23 @@
             }
         ?>
         <form action="" method="post">
-            Merci de saisir les informations suivantes : <br><br>
-            Titre : 
-            <br><input type="text" name="titre"><br>
-            Texte du Sujet : 
-            <br><input type="text" name="texteSujet"><br><br>
+            <?php
+                echo('Merci de saisir les informations suivantes : <br><br>');
+                echo('Titre : ');
+                echo('<br><input type="text" name="titre"');
+                if (!$valide) 
+                {
+                    echo(' value = "'.$_POST['titre'].'"');
+                }
+                echo('><br>');
+                echo('Texte du Sujet :');
+                echo('<br><input type="text" name="texteSujet"');
+                if (!$valide) 
+                {
+                    echo(' value = "'.$_POST['texteSujet'].'"');
+                }
+                echo('><br><br>');
+            ?>
             <input type="submit" value="Créer"><br><br>
         </form>
         <a href="accueil.php">Retour à l'accueil</a>  
