@@ -1,0 +1,98 @@
+/* Couleurs Charte Graphique Hexa */
+
+:root {
+    --primary: #1C1C1C!important;
+    --primaryHighlight: #242424!important;
+    --color: #9BBED6!important;
+    --colorHighlight: #B8E2FF!important;
+    --white: #EFFCF9!important;
+}
+
+/* Color Theme Swatches in RGBA
+.Projet_PHP-1-rgba { color: rgba(28, 28, 28, 1); }
+.Projet_PHP-2-rgba { color: rgba(36, 36, 36, 1); }
+.Projet_PHP-3-rgba { color: rgba(155, 190, 214, 1); }
+.Projet_PHP-4-rgba { color: rgba(184, 226, 255, 1); }
+.Projet_PHP-5-rgba { color: rgba(239, 252, 249, 1); } */
+
+body {
+    background-color: var(--primaryHighlight);
+    color: var(--white);
+    /* background-image: url("./img/rain_bk.jpg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Oswald', sans-serif;
+    font-size: larger;
+}
+
+/* Liens */
+
+a {
+    color: var(--color);
+}
+
+a:hover {
+    color: var(--colorHighlight);
+}
+
+a:active {
+    color: var(--white);
+}
+
+/* Connexion section */
+
+.connexion {
+    background: var(--primaryHighlight);
+    box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
+    border-radius: 20px;
+    margin: 25px;
+    padding: 10px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Inputs */
+
+.input {
+    border-radius: 20px;
+    height: 20px;
+    padding: 5px;
+    text-align: center;
+    opacity: 0.9;
+    border-radius: 50px;
+    background: var(--primaryHighlight);
+    box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
+    color: var(--white);
+    border-style: none;
+}
+
+/* Bouton valider */
+
+.button {
+    border-radius: 20px;
+    height: 40px;
+    padding: 5px;
+    background: var(--primaryHighlight);
+    box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
+    color: var(--white);
+    border-style: none;
+}
+
+/* .button:hover {
+    background-color: var(--primary);
+    color: var(--primaryHighlight);
+} */
+
+.button:active {
+    background-color: var(--white);
+    color: var(--primary);
+}
+
+/* Message d'erreur */
+
+.message {
+    color: var(--color);
+    font-style: italic;
+    font-weight: bolder;
+}
