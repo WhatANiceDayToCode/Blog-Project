@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Accueil</title>
         <script language="javascript" type="text/javascript">
-            function valideSuppr() 
+            function validationDeco() 
             {
                 if (confirm("Etes vous sur de vouoir vous déconnecter ?")) 
                 {
@@ -34,16 +34,18 @@
         <?php
             if (!$connecte) 
             {
-                echo('<a href="login.php"><input type="button" value="Se connecter"></a><br>');
-                echo('<a href="creerCompte.php"><input type="button" value="Créer un compte"></a><br>');
+                echo ('<a href="login.php"><input type="button" value="Se connecter"></a>');
+                echo ('<br><br>');
+                echo ('<a href="creerCompte.php"><input type="button" value="Créer un compte"></a>');
+                echo ('<br>');
             }
             else
             {
                 echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
                 echo ('<br><br>');
-                echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter"></a>');
+                echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return validationDeco()"></a>');
                 echo ('<br><br>');
-                echo ('<a href="creerSujet.php"><input type="button" value="Créer un sujet"></a>');
+                echo ('<a href="creerSujet.php"><input type="button" value="Créer un sujet""></a>');
             }
         ?>
 
