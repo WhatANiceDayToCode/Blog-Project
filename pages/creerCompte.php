@@ -50,7 +50,7 @@
                     }
                     else
                     {
-                        $message = "Ce pseudo ou Email existe déjà";
+                        $message = "Ce pseudo ou cet Email existe déjà";
                     }
                 }
                 else
@@ -70,17 +70,44 @@
             }
         ?>
         <form action="" method="post">
-            Merci de saisir les informations suivantes : <br><br>
-            Nom : 
-            <br><input type="text" name="nom" id=""><br>
-            Prenom : 
-            <br><input type="text" name="prenom" id=""><br>
-            Mail : 
-            <br><input type="email" name="mail" id=""><br>
-            Pseudo : 
-            <br><input type="text" name="pseudo" id=""><br>
-            Mot de Passe : 
-            <br><input type="password" name="password" id=""><br><br>
+            <?php
+                echo ('Merci de saisir les informations suivantes : <br><br>');
+                echo ('Nom : ');
+                echo ('<br><input type="text" name="nom"');
+                if (!$valide) 
+                {
+                    echo(' value = "'.$_POST['nom'].'"');
+                }
+                echo ('><br>');
+                echo ('Prenom :');
+                echo ('<br><input type="text" name="prenom"');
+                if (!$valide) 
+                {
+                    echo(' value = "'.$_POST['prenom'].'"');
+                }
+                echo ('><br>');
+                echo ('Mail :');
+                echo ('<br><input type="email" name="mail"');
+                if (!$valide) 
+                {
+                    echo(' value = "'.$_POST['mail'].'"');
+                }
+                echo ('><br>');
+                echo ('Pseudo : ');
+                echo ('<br><input type="text" name="pseudo"');
+                if (!$valide) 
+                {
+                    echo(' value = "'.$_POST['pseudo'].'"');
+                }
+                echo ('><br>');
+                echo ('Mot de Passe : ');
+                echo ('<br><input type="password" name="password"');
+                if (!$valide) 
+                {
+                    echo(' value = "'.$_POST['password'].'"');
+                }
+                echo ('><br><br>');               
+            ?>    
             <input type="submit" value="Créer"><br><br>
         </form>
         <a href="accueil.php">Retour à l'accueil</a>  
