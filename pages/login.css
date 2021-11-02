@@ -1,11 +1,12 @@
 /* Couleurs Charte Graphique Hexa */
 
-:root {
-    --primary: #1C1C1C!important;
-    --primaryHighlight: #242424!important;
-    --color: #9BBED6!important;
-    --colorHighlight: #B8E2FF!important;
-    --white: #EFFCF9!important;
+:root 
+{
+    --primary: #1C1C1C;
+    --primaryHighlight: #242424;
+    --color: #9BBED6;
+    --colorHighlight: #B8E2FF;
+    --white: #EFFCF9;
 }
 
 /* Color Theme Swatches in RGBA
@@ -15,7 +16,8 @@
 .Projet_PHP-4-rgba { color: rgba(184, 226, 255, 1); }
 .Projet_PHP-5-rgba { color: rgba(239, 252, 249, 1); } */
 
-body {
+body 
+{
     background-color: var(--primaryHighlight);
     color: var(--white);
     /* background-image: url("./img/rain_bk.jpg"); */
@@ -28,21 +30,25 @@ body {
 
 /* Liens */
 
-a {
+a 
+{
     color: var(--color);
 }
 
-a:hover {
+a:hover 
+{
     color: var(--colorHighlight);
 }
 
-a:active {
+a:active 
+{
     color: var(--white);
 }
 
 /* Connexion section */
 
-.connexion {
+.connexion 
+{
     background: var(--primaryHighlight);
     box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
     border-radius: 20px;
@@ -72,17 +78,13 @@ a:active {
 .button {
     border-radius: 20px;
     height: 40px;
-    padding: 5px;
+    padding: 10px;
     background: var(--primaryHighlight);
     box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
     color: var(--white);
     border-style: none;
+    cursor: pointer;
 }
-
-/* .button:hover {
-    background-color: var(--primary);
-    color: var(--primaryHighlight);
-} */
 
 .button:active {
     background-color: var(--white);
