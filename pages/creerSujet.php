@@ -10,7 +10,7 @@
             session_start();
             include_once("../connexion/connexion.php");
             $message = "";
-            $connecte = $_SESSION['connecte'];
+            $connecte = $_SESSION['connection'];
 
             if ($connecte && array_key_exists('titre', $_POST) && array_key_exists('texteSujet', $_POST)) 
             {
@@ -20,7 +20,7 @@
 
                     // Recuperer l'ID du redacteur
                     $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
-                    $select_stmt->bindValue(1, trim($pseudo), PDO::PARAM_STR);
+                    $select_stmt->bindValue(1, trim($_SESSION['pseudo']), PDO::PARAM_STR);
                     $select_stmt->execute();
                     $idRedacteur = $select_stmt->fetch()['idRedacteur'];
 
@@ -31,7 +31,7 @@
                     $insert_stmt->bindValue(3, trim($_POST['texteSujet']), PDO::PARAM_STR);
                     $insert_stmt->execute();
 
-                    header('Location:');
+                    header('Location:'.$_SESSION['provenance']);
                 }
                 else
                 {

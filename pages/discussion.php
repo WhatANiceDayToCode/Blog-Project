@@ -64,7 +64,7 @@
             // Affichage des sujets
             if ($sujet != null) 
             {
-                $dateSujet = date('d/m/Y à h:i:s', strtotime($sujet['dateSujet']));
+                $dateSujet = date('d/m/Y à H:i:s', strtotime($sujet['dateSujet']));
 
                 echo ('Titre : '.$sujet['titreSujet'].'<br>Par le rédacteur : '.$sujet['pseudo'].' le '.$dateSujet.'<br><br><br>');
                 //Ouverture de la table avec le texte du sujet et les reponses correspondantes
