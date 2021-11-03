@@ -26,6 +26,17 @@ body {
     font-size: larger;
 }
 
+/* Titre de section */
+
+.title {
+    font-size: 2rem;
+}
+
+.subTitle {
+    font-size: 1rem;
+    font-style: italic;
+}
+
 /* Liens */
 
 a {
