@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
 
     <?php
     session_start();
@@ -18,10 +18,8 @@
     $message = "";
     $redacteur = null;
 
-    if (array_key_exists('pseudo', $_POST) && array_key_exists('password', $_POST)) 
-    {
-        if ($_POST['pseudo'] != "" && $_POST['password'] != "") 
-        {
+    if (array_key_exists('pseudo', $_POST) && array_key_exists('password', $_POST)) {
+        if ($_POST['pseudo'] != "" && $_POST['password'] != "") {
             $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE (pseudo = ? OR adresseMail = ?) AND motDePasse = ?');
 
             $select_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
@@ -32,8 +30,7 @@
             $value = $select_stmt->fetchAll();
 
             //Si value != null, ca veux dire que la requete a renvoyé un resultat donc que le redacteur existe
-            if ($value != null) 
-            {
+            if ($value != null) {
                 $redacteur = $value[0];
 
                 $_SESSION['connection'] = true;
@@ -43,14 +40,10 @@
 
                 //redirection vers l'ancienne page 
                 header('Location:' . $_SESSION["provenance"]);
-            } 
-            else 
-            {
+            } else {
                 $message = "Veuillez verifier votre pseudo et/ou votre mot de passe";
             }
-        } 
-        else 
-        {
+        } else {
             $message = "Veuillez saisir votre identifiant et votre mot de passe";
         }
     }
@@ -69,11 +62,10 @@
             <input class="input" type="password" size="30" name="password" placeholder="Mot de Passe"><br><br>
 
             <?php
-                if ($message != "") 
-                {
-                    echo ("<div class='message'>" . $message . "</div>");
-                    echo ("<br>");
-                }
+            if ($message != "") {
+                echo ("<div class='message'>" . $message . "</div>");
+                echo ("<br>");
+            }
             ?>
 
             <input class="button" type="submit" value="Valider" onclick="return checkComplete()"><br><br>

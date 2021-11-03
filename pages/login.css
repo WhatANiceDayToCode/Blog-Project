@@ -1,7 +1,6 @@
 /* Couleurs Charte Graphique Hexa */
 
-:root 
-{
+:root {
     --primary: #1C1C1C;
     --primaryHighlight: #242424;
     --color: #9BBED6;
@@ -16,39 +15,34 @@
 .Projet_PHP-4-rgba { color: rgba(184, 226, 255, 1); }
 .Projet_PHP-5-rgba { color: rgba(239, 252, 249, 1); } */
 
-body 
-{
+body {
     background-color: var(--primaryHighlight);
     color: var(--white);
     /* background-image: url("./img/rain_bk.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Zen Kurenaido', sans-serif;
     font-size: larger;
 }
 
 /* Liens */
 
-a 
-{
+a {
     color: var(--color);
 }
 
-a:hover 
-{
+a:hover {
     color: var(--colorHighlight);
 }
 
-a:active 
-{
+a:active {
     color: var(--white);
 }
 
 /* Connexion section */
 
-.connexion 
-{
+.connexion {
     background: var(--primaryHighlight);
     box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
     border-radius: 20px;
@@ -71,6 +65,7 @@ a:active
     box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
     color: var(--white);
     border-style: none;
+    font-family: 'Zen Kurenaido', sans-serif;
 }
 
 .input:active {
@@ -88,6 +83,7 @@ a:active
     color: var(--white);
     border-style: none;
     cursor: pointer;
+    font-family: 'Zen Kurenaido', sans-serif;
 }
 
 .button:active {
