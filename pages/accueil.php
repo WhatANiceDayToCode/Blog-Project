@@ -38,10 +38,11 @@
             <?php
                 if (!$connecte) 
                 {
-                    echo('<div>');
+                    echo ('Authentification');
+                    echo ('<div>');
                     echo ('<a href="login.php">Se connecter</a>');
                     echo ('<a href="creerCompte.php">Créer un compte</a>');
-                    echo('</div>');
+                    echo ('</div>');
                 }
                 else
                 {
