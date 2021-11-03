@@ -73,7 +73,7 @@ a:active {
 .input {
     border-radius: 20px;
     height: 20px;
-    width:200px;
+    width: 200px;
     padding: 5px;
     text-align: center;
     opacity: 0.9;
@@ -87,7 +87,7 @@ a:active {
 
 .area {
     padding: 25px;
-    width:500px;
+    width: 500px;
     height: fit-content;
     overflow: auto;
     /* resize: both; */
@@ -124,15 +124,22 @@ a:active {
     font-weight: bolder;
 }
 
+/* Style si réponse de la personne ayant posté le sujet */
+
+#writer {
+    background-color: rgba(155, 190, 214, 0.8);
+    border-radius: 50px;
+    color: var(--primary);
+    padding: 10px;
+}
+
 /**************************** ACCUEIL *************************/
 
-.block_header
-{
+.block_header {
     display: flex;
     flex-direction: column;
 }
 
-.option_connection *
-{
+.option_connection * {
     margin-right: 1%;
 }
