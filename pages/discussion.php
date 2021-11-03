@@ -112,6 +112,7 @@
 
 
                 // Afficher la saisie de commentaire uniquement si l'on est connecté
+                echo ('<div class ="section_commentaire">');
                 if ($connecte) 
                 {
                     // Section reponse
@@ -122,15 +123,14 @@
                         //Affichage du pseudo, et d'un formulaire de commentaire
                         echo ('<div class="subTitle"> Votre pseudo : '.$pseudo.'</div><br>');
 
-                        echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea><br><br>');
+                        echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea>');
                         echo ('<input class="button" type="submit" value="Poster ma réponse" name="submit_reponse"/>');
 
                     echo ('</form>');
                 } 
                 else 
                 {
-                    echo ('<br><br>');
-                    echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire<br><br>');
+                    echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire');
 
                     // Proposition de connexion
                     echo ('<a href="login.php"><input type="button" class="button" value="Se connecter"></a>');
@@ -139,8 +139,7 @@
                     echo (' ou ');
                     echo ('<a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>');
                 }
-//BR a supprimer                
-                echo ('<br><br>');
+                echo ('</div');
             } 
             else 
             {
