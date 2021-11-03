@@ -123,13 +123,41 @@ a:active {
 
 /**************************** ACCUEIL *************************/
 
-.block_header
-{
-    display: flex;
-    flex-direction: column;
-}
 
-.option_connection *
+.option_under_title *
 {
     margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 100%;
+}
+
+.option_under_title 
+{
+    margin-bottom: 2%;
+}
+
+/**************************** TABLEAU *************************/
+
+.tab_title
+{
+    font-size: 1.5rem;
+    margin: 2%;
+}
+
+.tab_entier
+{
+    border-collapse: separate;
+}
+
+.tab_entier tr td
+{
+    text-align: left;
+    width: 24%;
+}
+
+#titre_colonne td
+{
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
 }
