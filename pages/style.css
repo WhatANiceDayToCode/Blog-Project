@@ -26,6 +26,10 @@ body {
     font-size: larger;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 /* Titre de section */
 
 .title {
@@ -80,8 +84,14 @@ a:active {
     font-family: 'Zen Kurenaido', sans-serif;
 }
 
-.input:active {
-    background-color: var(--primaryHighlight);
+.area {
+    padding: 25px;
+    height: fit-content;
+    overflow: auto;
+}
+
+.area::-webkit-scrollbar {
+    display: none;
 }
 
 /* Bouton valider */
