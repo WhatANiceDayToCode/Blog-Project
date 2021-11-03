@@ -68,9 +68,9 @@
 
                 echo ('<div class="">Titre : ' . $sujet['titreSujet']
                     . '<br>Par le rédacteur : ' . $sujet['pseudo']
-                    . '<br> Le ' . $dateSujet . '<br><br>');
+                    . '<br> Le ' . $dateSujet . '<br>');
                 echo $sujet['texteSujet'];
-                echo ('<br><br><hr><br>');
+                echo ('<hr>');
                 //Ouverture de la table avec le texte du sujet et les reponses correspondantes
                 // echo ('<table>');
                 // echo('<br>');
@@ -93,7 +93,7 @@
 
                         // echo ('<tr>');
                         if ($reponse['pseudo'] != $sujet['pseudo']) {
-                        echo (/*'<td>' .*/'>> '.$reponse["texteReponse"] . '<br> Par ' . $reponse["pseudo"] . ' à ' . $dateSujet . '<br><hr><br>'/*</td>*/);
+                        echo (/*'<td>' .*/'>> '.$reponse["texteReponse"] . '<br> Par ' . $reponse["pseudo"] . ' à ' . $dateSujet . '<br><hr>'/*</td>*/);
                             // echo ('<td></td>');
                         } else {
                             echo ('<p id="writer"> >> ' . $reponse["texteReponse"] . '<br> Par ' . $reponse["pseudo"] . ' à ' . $dateSujet . '<hr></p>');
