@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sujet</title>
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+
     <?php
         include_once('../connexion/connexion.php');
         session_start();
@@ -47,6 +51,7 @@
 </head>
 
 <body>
+    <div class="sect_inc">
     <?php
         if (array_key_exists('idSujet', $_GET)) 
         {
@@ -116,22 +121,22 @@
                     echo ('Votre pseudo : ' . $pseudo . '<br><br>');
 
                     echo ('<textarea name="reponse" value="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea><br><br>');
-                    echo ('<input type="submit" value="Poster ma réponse" name="submit_reponse"/>');
+                    echo ('<input class="button" type="submit" value="Poster ma réponse" name="submit_reponse"/>');
 
                     echo ('</form>');
 
                 } 
                 else 
                 {
-                    echo ('<br><br>');
+                    echo ('<br><hr><br>');
                     echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire<br><br>');
 
                     // Proposition de connexion
-                    echo ('<a href="login.php"><input type="button" value="Se connecter"></a><br>');
+                    echo ('<a href="login.php"><input type="button" class="button" value="Se connecter"></a>');
 
                     // Ou d'inscription !
-                    echo ('<br>Pas de compte ?<br>');
-                    echo ('<a href="creerCompte.php"><input type="button" value="Créer un compte"></a>');
+                    echo (' ou ');
+                    echo ('<a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>');
                 }
 
                 echo ('<br><br>');
@@ -146,7 +151,8 @@
             echo ("Il y a une erreur dans le chargement de la page, merci de revenir à l'accueil<br><br>");
         }
     ?>
-    <a href="accueil.php"><input type="button" value="Retour a l'accueil"></a>
+    <a href="accueil.php">Retour a l'accueil</a>
+    </div>
 </body>
 
 </html>

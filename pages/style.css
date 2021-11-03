@@ -73,6 +73,7 @@ a:active {
 .input {
     border-radius: 20px;
     height: 20px;
+    width:200px;
     padding: 5px;
     text-align: center;
     opacity: 0.9;
@@ -86,8 +87,10 @@ a:active {
 
 .area {
     padding: 25px;
+    width:500px;
     height: fit-content;
     overflow: auto;
+    /* resize: both; */
 }
 
 .area::-webkit-scrollbar {
