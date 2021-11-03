@@ -125,14 +125,17 @@ a:active {
 }
 
 /**************************** DISCUSSION *************************/
+.reponse
+{
+    padding: 10px;
+}
 
 .writer 
 {
     background-color: rgba(155, 190, 214, 0.8);
     box-shadow: inset 20px 20px 60px var(--colorHighlight), inset -20px -20px 60px var(--colorHighlight);
-    border-radius: 50px;
+    border-radius: 10px;
     color: var(--primary);
-    padding: 10px;
 }
 
 .subject 
@@ -147,6 +150,12 @@ a:active {
 {
     display: flex;
     flex-direction: column;
+}
+
+#title_commentaire
+{
+    text-align:left;
+    padding:10px;
 }
 
 /**************************** ACCUEIL *************************/

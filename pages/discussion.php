@@ -68,8 +68,8 @@
 
                 echo ('<div class="title">' . $sujet['titreSujet'].'</div>');
                 echo ('<div class="info_sujet">');
-                    echo ('<div class="subTitle"> Par le rédacteur : '.$sujet['pseudo']);
-                    echo ('Le '.$dateSujet.'</div>');
+                    echo ('<div class="subTitle"> Par le rédacteur : '.$sujet['pseudo'].'</div>');
+                    echo ('<div>Le '.$dateSujet.'</div>');
                 echo ('</div>');
                 echo ('<div class="subject">' . $sujet['texteSujet'].'</div>');
                 echo ('<hr>');
@@ -80,27 +80,31 @@
                                                   WHERE idSujet = ?
                                                   AND rep.idRedacteur = redac.idRedacteur
                                                   ORDER BY dateRep ASC');
+
                 $select_stmt->bindValue(1, trim($sujet['idSujet']), PDO::PARAM_INT);
 
                 $select_stmt->execute();
 
                 $result = $select_stmt->fetchAll();
 
-                echo ('<br><div class="title" style="text-align:left;padding:10px;">Commentaires : </div><hr>');
-                if ($result != null) {
-                    foreach ($result as $reponse) {
+                echo ('<div id="title_commentaire" class="title">Commentaires : </div><hr>');
+                if ($result != null) 
+                {
+                    foreach ($result as $reponse) 
+                    {
                         $dateSujet = date('d/m/Y à H:i:s', strtotime($reponse['dateRep']));
 
-                        // echo ('<tr>');
-                        if ($reponse['pseudo'] != $sujet['pseudo']) {
-                            echo (/*'<td>' .'Par ' .*/'<div style="text-align:left">'.$reponse["pseudo"].'</div>'
-                                . '<br>' . '>> ' . $reponse["texteReponse"] 
-                            . '<br><div style="text-align:right"> le ' . $dateSujet . '</div>' . '<hr>' /*</td>*/);
-                            // echo ('<td></td>');
-                        } else {
-                            echo ('<div class="writer"> >> ' . $reponse["texteReponse"] . '<br> Par ' . $reponse["pseudo"] . ' à ' . $dateSujet . '</div><hr>');
-                            // echo ('</tr>');
+                        echo('<div class="reponse');
+                        if ($reponse['pseudo'] == $sujet['pseudo']) 
+                        {
+                            echo (' writer');
                         }
+                        echo ('">');
+                            echo ('<div style="text-align:left">'.$reponse["pseudo"].'</div>');
+                            echo ($reponse["texteReponse"]);
+                            echo ('<div style="text-align:right"> le ' . $dateSujet . '</div>');
+                        echo ('</div>');
+                        echo ('<hr>');
                     }
                 }
 
