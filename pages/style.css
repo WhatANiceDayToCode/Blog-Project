@@ -30,6 +30,7 @@ body {
 
 .title {
     font-size: 2rem;
+    margin-bottom: 15px;
 }
 
 .subTitle {
@@ -116,4 +117,9 @@ a:active {
 {
     display: flex;
     flex-direction: column;
+}
+
+.option_connection *
+{
+    margin-right: 1%;
 }

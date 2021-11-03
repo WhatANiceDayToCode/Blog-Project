@@ -34,25 +34,38 @@
         ?>
     </head>
     <body>
-        <div class="block_header">
+        <div class="sect_inc">
+            <div class="title">
+                <?php
+                    if (!$connecte) 
+                    {
+                        echo ('Authentification');
+                    }
+                    else
+                    {
+                        echo ('Bienvenue '.$_SESSION['pseudo']);
+                    }
+                ?>
+            </div>
             <?php
                 if (!$connecte) 
                 {
-                    echo ('Authentification');
                     echo ('<div class="option_connection">');
-                    echo ('<a href="login.php">Se connecter</a>');
-                    echo ('<a href="creerCompte.php">Créer un compte</a>');
+                        echo ('<a href="login.php">Se connecter</a>');
+                        echo ('<a href="creerCompte.php">Créer un compte</a>');
                     echo ('</div>');
                 }
                 else
                 {
-                    echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
                     echo ('<br><br>');
                     echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return validationDeco()"></a>');
                     echo ('<br><br>');
                     echo ('<a href="creerSujet.php"><input type="button" value="Créer un sujet""></a>');
                 }
             ?>
+        </div>
+        <div class="block_header">
+            
         </div>
         
         Liste des sujets : 

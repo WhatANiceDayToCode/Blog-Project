@@ -58,8 +58,6 @@
         <form method="POST" action="">
             <div class="subTitle">
                 Pour pouvoir poster des sujets ou répondre aux sujets présents
-                <!-- <br>
-                merci de saisir vos identifiants -->
             </div>
             <br>
             <hr>
