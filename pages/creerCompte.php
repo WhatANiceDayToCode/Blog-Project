@@ -5,7 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Creation de Compte</title>
-
+        <!-- Feuilles de style -->
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+        
         <?php
             session_start();
             include_once("../connexion/connexion.php");
@@ -69,47 +74,49 @@
                 echo ("<br><br>");
             }
         ?>
+        <div class="sect_inc">
         <form action="" method="post">
             <?php
-                echo ('Merci de saisir les informations suivantes : <br><br>');
-                echo ('Nom : ');
-                echo ('<br><input type="text" name="nom"');
+                echo ('<div class="title">Créer un Compte</div> <br><hr><br>');
+                // echo ('Nom : ');
+                echo ('<input class="input" type="text" placeholder="Nom" name="nom"');
                 if (!$valide) 
                 {
                     echo(' value = "'.$_POST['nom'].'"');
                 }
                 echo ('><br>');
-                echo ('Prenom :');
-                echo ('<br><input type="text" name="prenom"');
+                // echo ('Prenom :');
+                echo ('<br><input class="input" type="text" placeholder="Prénom" name="prenom"');
                 if (!$valide) 
                 {
                     echo(' value = "'.$_POST['prenom'].'"');
                 }
                 echo ('><br>');
-                echo ('Mail :');
-                echo ('<br><input type="email" name="mail"');
+                // echo ('Mail :');
+                echo ('<br><input class="input" type="email" placeholder="Email" name="mail"');
                 if (!$valide) 
                 {
                     echo(' value = "'.$_POST['mail'].'"');
                 }
                 echo ('><br>');
-                echo ('Pseudo : ');
-                echo ('<br><input type="text" name="pseudo"');
+                // echo ('Pseudo : ');
+                echo ('<br><input class="input" type="text" placeholder="Pseudo" name="pseudo"');
                 if (!$valide) 
                 {
                     echo(' value = "'.$_POST['pseudo'].'"');
                 }
                 echo ('><br>');
-                echo ('Mot de Passe : ');
-                echo ('<br><input type="password" name="password"');
+                // echo ('Mot de Passe : ');
+                echo ('<br><input class="input" type="password" placeholder="Mot de Passe" name="password"');
                 if (!$valide) 
                 {
                     echo(' value = "'.$_POST['password'].'"');
                 }
                 echo ('><br><br>');               
             ?>    
-            <input type="submit" value="Créer"><br><br>
+            <input class="button" type="submit" value="Valider"><br><br>
         </form>
         <a href="accueil.php">Retour à l'accueil</a>  
+        </div>
     </body>
 </html>

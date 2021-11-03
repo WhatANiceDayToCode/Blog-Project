@@ -18,10 +18,10 @@
 body {
     background-color: var(--primaryHighlight);
     color: var(--white);
-    /* background-image: url("./img/rain_bk.jpg"); */
+    /* background-image: url("./img/rain_bk.jpg"); 
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; */
     font-family: 'Zen Kurenaido', sans-serif;
     font-size: larger;
 }

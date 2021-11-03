@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     <!-- Feuilles de style -->
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
@@ -57,7 +57,9 @@
         </div>
         <form method="POST" action="">
             <div class="subTitle">
-                Pour pouvoir poster des sujets et répondre aux sujets presents, merci de saisir vos identifiants :
+                Pour pouvoir poster des sujets ou répondre aux sujets présents
+                <!-- <br>
+                merci de saisir vos identifiants -->
             </div>
             <br>
             <hr>
