@@ -69,7 +69,7 @@
                 echo ('<div class="title">' . $sujet['titreSujet']
                     . '</div><div class="subTitle"> Par le rédacteur : ' . $sujet['pseudo']
                     . '<br> Le ' . $dateSujet . '</div><br>');
-                echo ('<div class="subject">'.$sujet['texteSujet'].'</div><br>');
+                echo ('<div class="subject">' . $sujet['texteSujet'] . '</div><br>');
                 echo ('<hr>');
                 //Ouverture de la table avec le texte du sujet et les reponses correspondantes
                 // echo ('<table>');
@@ -87,17 +87,19 @@
 
                 $result = $select_stmt->fetchAll();
 
-                echo('<br><div class="title" style="text-align:left;padding:10px;">Commentaires : </div><hr>');
+                echo ('<br><div class="title" style="text-align:left;padding:10px;">Commentaires : </div><hr>');
                 if ($result != null) {
                     foreach ($result as $reponse) {
-                        $dateSujet = date('d/m/Y à h:i:s', strtotime($reponse['dateRep']));
+                        $dateSujet = date('d/m/Y à H:i:s', strtotime($reponse['dateRep']));
 
                         // echo ('<tr>');
                         if ($reponse['pseudo'] != $sujet['pseudo']) {
-                        echo (/*'<td>' .*/'>> '.$reponse["texteReponse"] . '<br> Par ' . $reponse["pseudo"] . ' à ' . $dateSujet . '<br><hr>'/*</td>*/);
+                            echo (/*'<td>' .'Par ' .*/'<div style="text-align:left">'.$reponse["pseudo"].'</div>'
+                                . '<br>' . '>> ' . $reponse["texteReponse"] 
+                            . '<br><div style="text-align:right"> le ' . $dateSujet . '</div>' . '<hr>' /*</td>*/);
                             // echo ('<td></td>');
                         } else {
-                            echo ('<p id="writer"> >> ' . $reponse["texteReponse"] . '<br> Par ' . $reponse["pseudo"] . ' à ' . $dateSujet . '<hr></p>');
+                            echo ('<div class="writer"> >> ' . $reponse["texteReponse"] . '<br> Par ' . $reponse["pseudo"] . ' à ' . $dateSujet . '</div><hr>');
                             // echo ('</tr>');
                         }
                     }
@@ -115,7 +117,7 @@
                     echo ('<form method="POST">');
 
                     //Affichage du pseudo, et d'un formulaire de commentaire
-                    echo ('<h1="subTitle"> Votre pseudo : ' . $pseudo . '</h1><br><br>');
+                    echo ('<div class="subTitle"> Votre pseudo : ' . $pseudo . '</div><br>');
 
                     echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea><br><br>');
                     echo ('<input class="button" type="submit" value="Poster ma réponse" name="submit_reponse"/>');

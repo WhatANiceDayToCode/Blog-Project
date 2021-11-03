@@ -126,7 +126,7 @@ a:active {
 
 /* Style si réponse de la personne ayant posté le sujet */
 
-#writer {
+.writer {
     background-color: rgba(155, 190, 214, 0.8);
     box-shadow: inset 20px 20px 60px var(--colorHighlight), inset -20px -20px 60px var(--colorHighlight);
     border-radius: 50px;
