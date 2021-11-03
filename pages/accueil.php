@@ -34,25 +34,26 @@
         ?>
     </head>
     <body>
-        <?php
-            if (!$connecte) 
-            {
-                echo ('<a href="login.php"><input type="button" value="Se connecter"></a>');
-                echo ('<br><br>');
-                echo ('<a href="creerCompte.php"><input type="button" value="Créer un compte"></a>');
-                echo ('<br>');
-            }
-            else
-            {
-                echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
-                echo ('<br><br>');
-                echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return validationDeco()"></a>');
-                echo ('<br><br>');
-                echo ('<a href="creerSujet.php"><input type="button" value="Créer un sujet""></a>');
-            }
-        ?>
-
-        <br><br>
+        <div class="block_header">
+            <?php
+                if (!$connecte) 
+                {
+                    echo('<div>');
+                    echo ('<a href="login.php">Se connecter</a>');
+                    echo ('<a href="creerCompte.php">Créer un compte</a>');
+                    echo('</div>');
+                }
+                else
+                {
+                    echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
+                    echo ('<br><br>');
+                    echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return validationDeco()"></a>');
+                    echo ('<br><br>');
+                    echo ('<a href="creerSujet.php"><input type="button" value="Créer un sujet""></a>');
+                }
+            ?>
+        </div>
+        
         Liste des sujets : 
         <br><br>
 
