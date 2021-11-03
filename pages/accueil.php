@@ -102,7 +102,7 @@
                         echo ('<td>'.$sujet['titreSujet'].'</td>');
                         echo ('<td>'.$sujet['pseudo'].'</td>');
                         echo ('<td>Créé le '.$dateSujet.'</td>');
-                        echo ('<td><a href="discussion.php?idSujet='.$sujet['idSujet'].'"><input type="button" value="Acceder"></a></td>');
+                        echo ('<td><a href="discussion.php?idSujet='.$sujet['idSujet'].'"><input class="button" type="button" value="Acceder"></a></td>');
                         echo ('</tr>');
                     }
                 ?>
