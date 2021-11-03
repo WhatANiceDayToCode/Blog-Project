@@ -158,6 +158,16 @@ a:active {
     padding:10px;
 }
 
+.commentaire_pseudo
+{
+    text-align:left;
+}
+
+.commentaire_date
+{
+    text-align:right;
+}
+
 /**************************** ACCUEIL *************************/
 
 .option_under_title * {

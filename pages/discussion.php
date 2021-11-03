@@ -100,9 +100,9 @@
                             echo (' writer');
                         }
                         echo ('">');
-                            echo ('<div class="commentaire_pseudo" style="text-align:left">'.$reponse["pseudo"].'</div>');
+                            echo ('<div class="commentaire_pseudo">'.$reponse["pseudo"].'</div>');
                             echo ($reponse["texteReponse"]);
-                            echo ('<div style="text-align:right"> le ' . $dateSujet . '</div>');
+                            echo ('<div class="commentaire_date"> le '.$dateSujet.'</div>');
                         echo ('</div>');
                         echo ('<hr>');
                     }
@@ -120,7 +120,7 @@
                     echo ('<form method="POST">');
 
                     //Affichage du pseudo, et d'un formulaire de commentaire
-                    echo ('<div class="subTitle"> Votre pseudo : ' . $pseudo . '</div><br>');
+                    echo ('<div class="subTitle"> Votre pseudo : '.$pseudo.'</div><br>');
 
                     echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." rows="5" cols="45"></textarea><br><br>');
                     echo ('<input class="button" type="submit" value="Poster ma réponse" name="submit_reponse"/>');
