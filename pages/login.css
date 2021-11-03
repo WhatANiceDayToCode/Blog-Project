@@ -73,6 +73,10 @@ a:active
     border-style: none;
 }
 
+.input:active {
+    background-color: var(--primaryHighlight);
+}
+
 /* Bouton valider */
 
 .button {
