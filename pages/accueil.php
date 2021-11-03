@@ -39,7 +39,7 @@
                 if (!$connecte) 
                 {
                     echo ('Authentification');
-                    echo ('<div>');
+                    echo ('<div class="option_connection">');
                     echo ('<a href="login.php">Se connecter</a>');
                     echo ('<a href="creerCompte.php">Créer un compte</a>');
                     echo ('</div>');
