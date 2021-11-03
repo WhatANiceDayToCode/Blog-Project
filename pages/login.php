@@ -51,7 +51,7 @@
 </head>
 
 <body>
-    <div class="connexion">
+    <div class="sect_inc">
         <form method="POST" action="">
             Pour pouvoir poster des sujets et répondre aux sujets presents, merci de saisir vos identifiants :
             <br>

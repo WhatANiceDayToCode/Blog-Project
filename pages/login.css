@@ -40,9 +40,9 @@ a:active {
     color: var(--white);
 }
 
-/* Connexion section */
+/* Section incurvée */
 
-.connexion {
+.sect_inc {
     background: var(--primaryHighlight);
     box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
     border-radius: 20px;
