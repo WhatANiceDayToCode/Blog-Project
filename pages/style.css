@@ -124,9 +124,10 @@ a:active {
     font-weight: bolder;
 }
 
-/* Style si réponse de la personne ayant posté le sujet */
+/**************************** DISCUSSION *************************/
 
-.writer {
+.writer 
+{
     background-color: rgba(155, 190, 214, 0.8);
     box-shadow: inset 20px 20px 60px var(--colorHighlight), inset -20px -20px 60px var(--colorHighlight);
     border-radius: 50px;
@@ -134,11 +135,18 @@ a:active {
     padding: 10px;
 }
 
-.subject {
+.subject 
+{
     border-radius: 10px;
     background: #1C1C1C;
     box-shadow: -5px -5px 0px #202020;
     padding-bottom: 5px;
+}
+
+.info_sujet
+{
+    display: flex;
+    flex-direction: column;
 }
 
 /**************************** ACCUEIL *************************/
