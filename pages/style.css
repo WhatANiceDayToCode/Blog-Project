@@ -85,9 +85,11 @@ a:active {
     font-family: 'Zen Kurenaido', sans-serif;
 }
 
-.area {
+.area 
+{
     padding: 25px;
-    width: 500px;
+    width: auto;
+    max-width: 80%;
     height: fit-content;
     overflow: auto;
     /* resize: both; */
