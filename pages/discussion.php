@@ -121,7 +121,7 @@
                     echo ('<form method="POST">');
 
                         //Affichage du pseudo, et d'un formulaire de commentaire
-                        echo ('<div class="subTitle"> Votre pseudo : '.$pseudo.'</div><br>');
+                        echo ('<div class="subTitle"> Votre pseudo : '.$pseudo.'</div>');
 
                         echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." rows="5" cols="400"></textarea>');
                         echo ('<input class="button" type="submit" value="Poster ma réponse" name="submit_reponse"/>');
@@ -132,12 +132,13 @@
                 {
                     echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire');
 
-                    // Proposition de connexion
-                    echo ('<a href="login.php"><input type="button" class="button" value="Se connecter"></a>');
-
-                    // Ou d'inscription !
-                    echo (' ou ');
-                    echo ('<a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>');
+                    echo ('<div>');
+                        // Proposition de connexion
+                        echo ('<a href="login.php"><input type="button" class="button" value="Se connecter"></a>');
+                        // Ou d'inscription !
+                        echo (' ou ');
+                        echo ('<a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>');
+                    echo ('</div>');
                 }
                 echo ('</div>');
             } 

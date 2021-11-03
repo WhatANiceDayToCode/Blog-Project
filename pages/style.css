@@ -192,10 +192,11 @@ a:active
     
 }
 
-.section_commentaire .button
+.section_commentaire *
 {
     margin: 10px;
 }
+
 /**************************** ACCUEIL *************************/
 
 .option_under_title * 
