@@ -128,47 +128,48 @@ a:active {
 
 #writer {
     background-color: rgba(155, 190, 214, 0.8);
+    box-shadow: inset 20px 20px 60px var(--colorHighlight), inset -20px -20px 60px var(--colorHighlight);
     border-radius: 50px;
     color: var(--primary);
     padding: 10px;
 }
 
+.subject {
+    border-radius: 10px;
+    background: #1C1C1C;
+    box-shadow: -5px -5px 0px #202020;
+    padding-bottom: 5px;
+}
+
 /**************************** ACCUEIL *************************/
 
-
-.option_under_title *
-{
+.option_under_title * {
     margin-right: 1%;
     margin-left: 1%;
     margin-bottom: 100%;
 }
 
-.option_under_title 
-{
+.option_under_title {
     margin-bottom: 2%;
 }
 
 /**************************** TABLEAU *************************/
 
-.tab_title
-{
+.tab_title {
     font-size: 1.5rem;
     margin: 2%;
 }
 
-.tab_entier
-{
+.tab_entier {
     border-collapse: separate;
 }
 
-.tab_entier tr td
-{
+.tab_entier tr td {
     text-align: left;
     width: 24%;
 }
 
-#titre_colonne td
-{
+#titre_colonne td {
     text-align: center;
     font-size: 1.3em;
     font-weight: bold;
