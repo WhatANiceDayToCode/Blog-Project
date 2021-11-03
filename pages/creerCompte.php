@@ -116,6 +116,10 @@
             ?>    
             <input class="button" type="submit" value="Valider"><br><br>
         </form>
+        <hr>
+        <br>
+        Vous possedez déjà un compte ?
+        <a href="login.php"> Se connecter </a><br>
         <a href="accueil.php">Retour à l'accueil</a>  
         </div>
     </body>
