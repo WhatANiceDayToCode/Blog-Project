@@ -100,7 +100,7 @@
                             echo (' writer');
                         }
                         echo ('">');
-                            echo ('<div style="text-align:left">'.$reponse["pseudo"].'</div>');
+                            echo ('<div class="commentaire_pseudo" style="text-align:left">'.$reponse["pseudo"].'</div>');
                             echo ($reponse["texteReponse"]);
                             echo ('<div style="text-align:right"> le ' . $dateSujet . '</div>');
                         echo ('</div>');
@@ -112,10 +112,10 @@
 
 
                 // Afficher la saisie de commentaire uniquement si l'on est connecté
-                if ($connecte) {
+                if ($connecte) 
+                {
                     // Section reponse
-                    echo ('<br>');
-                    echo ('<h3 class="title">Ajouter un commentaire</h3>');
+                    echo ('<div class="title">Ajouter un commentaire</div>');
 
                     echo ('<form method="POST">');
 
@@ -126,8 +126,10 @@
                     echo ('<input class="button" type="submit" value="Poster ma réponse" name="submit_reponse"/>');
 
                     echo ('</form>');
-                } else {
-                    echo ('<br><hr><br>');
+                } 
+                else 
+                {
+                    echo ('<br><br>');
                     echo ('Veuillez vous connecter pour pouvoir ajouter un commentaire<br><br>');
 
                     // Proposition de connexion
@@ -137,12 +139,16 @@
                     echo (' ou ');
                     echo ('<a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>');
                 }
-
+//BR a supprimer                
                 echo ('<br><br>');
-            } else {
+            } 
+            else 
+            {
                 echo ("Aucun sujet n'existe avec ce code, merci de revenir à l'accueil<br><br>");
             }
-        } else {
+        } 
+        else 
+        {
             echo ("Il y a une erreur dans le chargement de la page, merci de revenir à l'accueil<br><br>");
         }
         ?>
