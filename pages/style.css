@@ -158,13 +158,16 @@ a:active {
 
 .tab_entier
 {
-    border-collapse: separate;
+    border-collapse: collapse;    
+    border: var(--white) solid 2px;
 }
 
 .tab_entier tr td
 {
     text-align: left;
     width: 24%;
+    border-left: var(--white) solid 2px;
+    border-right: var(--white) solid 2px;
 }
 
 #titre_colonne td
