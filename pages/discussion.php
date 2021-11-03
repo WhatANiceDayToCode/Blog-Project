@@ -67,8 +67,10 @@
                 $dateSujet = date('d/m/Y à H:i:s', strtotime($sujet['dateSujet']));
 
                 echo ('<div class="title">' . $sujet['titreSujet'].'</div>');
-                echo ('<div class="subTitle"> Par le rédacteur : '.$sujet['pseudo']);
-                echo ('Le '.$dateSujet.'</div>');
+                echo ('<div class="info_sujet">');
+                    echo ('<div class="subTitle"> Par le rédacteur : '.$sujet['pseudo']);
+                    echo ('Le '.$dateSujet.'</div>');
+                echo ('</div>');
                 echo ('<div class="subject">' . $sujet['texteSujet'].'</div>');
                 echo ('<hr>');
 
