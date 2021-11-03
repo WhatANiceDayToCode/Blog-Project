@@ -66,14 +66,11 @@
             if ($sujet != null) {
                 $dateSujet = date('d/m/Y à H:i:s', strtotime($sujet['dateSujet']));
 
-                echo ('<div class="title">' . $sujet['titreSujet']
-                    . '</div><div class="subTitle"> Par le rédacteur : ' . $sujet['pseudo']
-                    . '<br> Le ' . $dateSujet . '</div><br>');
-                echo ('<div class="subject">' . $sujet['texteSujet'] . '</div><br>');
+                echo ('<div class="title">' . $sujet['titreSujet'].'</div>');
+                echo ('<div class="subTitle"> Par le rédacteur : '.$sujet['pseudo']);
+                echo ('Le '.$dateSujet.'</div>');
+                echo ('<div class="subject">' . $sujet['texteSujet'].'</div>');
                 echo ('<hr>');
-                //Ouverture de la table avec le texte du sujet et les reponses correspondantes
-                // echo ('<table>');
-                // echo('<br>');
 
                 //Inclure toute les reponses avec un select et un foreach
                 $select_stmt = $objPdo->prepare('SELECT texteReponse, dateRep, pseudo 
