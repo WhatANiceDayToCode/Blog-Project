@@ -119,3 +119,11 @@ a:active {
     font-style: italic;
     font-weight: bolder;
 }
+
+/**************************** ACCUEIL *************************/
+
+.block_header
+{
+    display: flex;
+    flex-direction: column;
+}

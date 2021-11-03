@@ -5,6 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Accueil</title>
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+
         <script language="javascript" type="text/javascript">
             function validationDeco() 
             {
@@ -31,25 +34,27 @@
         ?>
     </head>
     <body>
-        <?php
-            if (!$connecte) 
-            {
-                echo ('<a href="login.php"><input type="button" value="Se connecter"></a>');
-                echo ('<br><br>');
-                echo ('<a href="creerCompte.php"><input type="button" value="Créer un compte"></a>');
-                echo ('<br>');
-            }
-            else
-            {
-                echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
-                echo ('<br><br>');
-                echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return validationDeco()"></a>');
-                echo ('<br><br>');
-                echo ('<a href="creerSujet.php"><input type="button" value="Créer un sujet""></a>');
-            }
-        ?>
-
-        <br><br>
+        <div class="block_header">
+            <?php
+                if (!$connecte) 
+                {
+                    echo ('Authentification');
+                    echo ('<div class="option_connection">');
+                    echo ('<a href="login.php">Se connecter</a>');
+                    echo ('<a href="creerCompte.php">Créer un compte</a>');
+                    echo ('</div>');
+                }
+                else
+                {
+                    echo ('Bienvenue '.$_SESSION['pseudo'].' / '.$_SESSION['nom'].' '.$_SESSION['prenom']);
+                    echo ('<br><br>');
+                    echo ('<a href="deconnexion.php"><input type="button" value="Se deconnecter" onclick="return validationDeco()"></a>');
+                    echo ('<br><br>');
+                    echo ('<a href="creerSujet.php"><input type="button" value="Créer un sujet""></a>');
+                }
+            ?>
+        </div>
+        
         Liste des sujets : 
         <br><br>
 
