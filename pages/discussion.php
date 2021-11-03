@@ -139,7 +139,7 @@
                     echo (' ou ');
                     echo ('<a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>');
                 }
-                echo ('</div');
+                echo ('</div>');
             } 
             else 
             {

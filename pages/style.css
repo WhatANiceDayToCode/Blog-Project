@@ -170,6 +170,12 @@ a:active {
     text-align:right;
 }
 
+.section_commentaire
+{
+    display: flex;
+    flex-direction: column;
+}
+
 /**************************** ACCUEIL *************************/
 
 .option_under_title * {
