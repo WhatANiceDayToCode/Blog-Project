@@ -73,15 +73,16 @@
                 echo ('<tr><td>' . $sujet['texteSujet'] . '</td></tr>');
 
                 //Inclure toute les reponses avec un select et un foreach
-                $result = $objPdo->query('SELECT texteReponse, dateRep, pseudo 
-                                         FROM reponse rep, redacteur redac
-                                         WHERE idSujet = '.$sujet['idSujet'].'
-                                         AND rep.idRedacteur = redac.idRedacteur
-                                         ORDER BY dateRep ASC');
+                $select_stmt = $objPdo->prepare('SELECT texteReponse, dateRep, pseudo 
+                                                  FROM reponse rep, redacteur redac
+                                                  WHERE idSujet = ?
+                                                  AND rep.idRedacteur = redac.idRedacteur
+                                                  ORDER BY dateRep ASC');
+                $select_stmt->bindValue(1, trim($sujet['idSujet']), PDO::PARAM_INT);
 
+                $select_stmt->execute();
 
-                    // La passer en prepared
-
+                $result = $select_stmt->fetchAll();
 
                 if ($result != null) 
                 {
