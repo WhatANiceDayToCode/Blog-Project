@@ -75,7 +75,7 @@
         <div class="sect_inc">
         <form action="" method="post">
             <?php
-                echo ('<div class="title">Créer un Compte</div> <br><hr><br>');
+                echo ('<div class="title">Créer un Compte</div> <hr><br>');
                 // echo ('Nom : ');
                 echo ('<input class="input" type="text" placeholder="Nom" name="nom"');
                 if (!$valide) 
