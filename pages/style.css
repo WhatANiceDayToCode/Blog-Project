@@ -26,6 +26,10 @@ body {
     font-size: larger;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 /* Titre de section */
 
 .title {
