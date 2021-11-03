@@ -52,8 +52,13 @@
 
 <body>
     <div class="sect_inc">
+        <div class="title">
+            Connexion
+        </div>
         <form method="POST" action="">
-            Pour pouvoir poster des sujets et répondre aux sujets presents, merci de saisir vos identifiants :
+            <div class="subTitle">
+                Pour pouvoir poster des sujets et répondre aux sujets presents, merci de saisir vos identifiants :
+            </div>
             <br>
             <hr>
             <br>
@@ -73,7 +78,7 @@
         <hr>
         <br>
         Vous n'avez pas encore de compte ?
-        <a href="creactionCompte.php"> Créez en un !</a><br>
+        <a href="creerCompte.php"> Créez en un !</a><br>
         <a href="accueil.php">Retour à l'accueil</a>
     </div>
 
