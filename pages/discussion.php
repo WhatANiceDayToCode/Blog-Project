@@ -66,10 +66,10 @@
             if ($sujet != null) {
                 $dateSujet = date('d/m/Y à H:i:s', strtotime($sujet['dateSujet']));
 
-                echo ('<div class="">Titre : ' . $sujet['titreSujet']
-                    . '<br>Par le rédacteur : ' . $sujet['pseudo']
-                    . '<br> Le ' . $dateSujet . '<br>');
-                echo $sujet['texteSujet'];
+                echo ('<div class="title">' . $sujet['titreSujet']
+                    . '</div><div class="subTitle"> Par le rédacteur : ' . $sujet['pseudo']
+                    . '<br> Le ' . $dateSujet . '</div><br>');
+                echo ('<div class="subject">'.$sujet['texteSujet'].'</div><br>');
                 echo ('<hr>');
                 //Ouverture de la table avec le texte du sujet et les reponses correspondantes
                 // echo ('<table>');
@@ -87,6 +87,7 @@
 
                 $result = $select_stmt->fetchAll();
 
+                echo('<br><div class="title" style="text-align:left;padding:10px;">Commentaires : </div><hr>');
                 if ($result != null) {
                     foreach ($result as $reponse) {
                         $dateSujet = date('d/m/Y à h:i:s', strtotime($reponse['dateRep']));
