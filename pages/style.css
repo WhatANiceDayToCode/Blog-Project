@@ -91,6 +91,7 @@ a:active
     box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
     color: var(--white);
     border-style: none;
+    font-size: 1.1em;  
     font-family: 'Zen Kurenaido', sans-serif;
 }
 
@@ -101,7 +102,6 @@ a:active
     max-width: 80%;
     height: fit-content;
     overflow: auto;
-    font-size: 1.1em;
 }
 
 .area::-webkit-scrollbar 
