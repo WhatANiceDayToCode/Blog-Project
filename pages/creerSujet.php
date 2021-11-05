@@ -46,30 +46,34 @@
 
 <body>
     <?php
-    if ($message != "") {
-        echo $message;
-        echo ("<br><br>");
-    }
+        
     ?>
     <div class="sect_inc">
         <form action="" method="post">
             <?php
-            echo ('<div class="title">Création d\'un sujet</div> ');
-            echo('<div class="subTitle"> Si possible veuillez vérifier que le sujet n\'a pas déjà été abordé avant de créer le sujet</div><br><hr><br>');
-            // echo('Titre : ');
-            echo ('<input class="input" type="text" placeholder="Titre" name="titre"');
-            if (!$valide) {
-                echo (' value = "' . $_POST['titre'] . '"');
-            }
-            echo ('><br>');
-            // echo('Texte du Sujet :');
-            echo ('<br><textarea class="area input" type="text" placeholder="Texte du Sujet" name="texteSujet"');
-            if (!$valide) {
-                echo (' value = "' . $_POST['texteSujet'] . '"');
-            }
-            echo ('rows="10" cols="100"></textarea><br><br>');
+                echo ('<div class="title">Création d\'un sujet</div> ');
+                echo('<div class="subTitle"> Si possible veuillez vérifier que le sujet n\'a pas déjà été abordé avant de créer le sujet</div><hr>');
+
+                echo ('<input class="input" type="text" placeholder="Titre" name="titre"');
+                if (!$valide) 
+                {
+                    echo (' value = "' . $_POST['titre'] . '"');
+                }
+                echo ('>');
+
+                echo ('<textarea class="area input" type="text" placeholder="Texte du Sujet" name="texteSujet"');
+                if (!$valide) 
+                {
+                    echo (' value = "' . $_POST['texteSujet'] . '"');
+                }
+                echo ('rows="10" cols="100"></textarea>');
+
+                if ($message != "") 
+                {
+                    echo $message;
+                }
             ?>
-            <input class="button" type="submit" value="Valider"><br><br>
+            <input class="button" type="submit" value="Valider">
         </form>
         <a href="accueil.php">Retour à l'accueil</a>
     </div>
