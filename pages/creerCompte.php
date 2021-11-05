@@ -119,7 +119,7 @@
             </form>
             <hr>
             <div class="bloc_bottom">
-                <div class="connect">
+                <div>
                     Vous possedez déjà un compte ?
                     <a href="login.php"><input type="button" class="button" value="Se connecter"></a>
                 </div>
