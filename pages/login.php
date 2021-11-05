@@ -65,22 +65,28 @@
                     Pour pouvoir poster des sujets ou répondre aux sujets présents
                 </div>
                 <hr>
-                <input class="input" type="text" size="30" name="pseudo" placeholder="Pseudo ou Email">
-                <input class="input" type="password" size="30" name="password" placeholder="Mot de Passe">
+                <div class="all_input">
+                    <input class="input" type="text" size="30" name="pseudo" placeholder="Pseudo ou Email">
+                    <input class="input" type="password" size="30" name="password" placeholder="Mot de Passe">
+                    
+                    <?php
+                        if ($message != "") 
+                        {
+                            echo ("<div class='message'>" . $message . "</div>");
+                        }
+                    ?>
 
-                <?php
-                if ($message != "") 
-                {
-                    echo ("<div class='message'>" . $message . "</div>");
-                }
-                ?>
-
-                <input class="button" type="submit" value="Valider" onclick="return checkComplete()">
+                    <input class="button" type="submit" value="Valider" onclick="return checkComplete()">
+                </div>
             </form>
             <hr>
-            Vous n'avez pas encore de compte ?
-            <a href="creerCompte.php"> Créez en un !</a>
-            <a href="accueil.php">Retour à l'accueil</a>
+            <div class="bloc_bottom">
+                <div>
+                    Vous n'avez pas encore de compte ?
+                    <a href="creerCompte.php"> Créez en un !</a>
+                </div>
+                <a href="accueil.php">Retour à l'accueil</a>
+            </div>
         </div>
     </body>
 </html>
