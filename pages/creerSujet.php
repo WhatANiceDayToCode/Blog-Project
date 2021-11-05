@@ -52,8 +52,9 @@
         <form action="" method="post">
             <?php
                 echo ('<div class="title">Création d\'un sujet</div> ');
-                echo('<div class="subTitle"> Si possible veuillez vérifier que le sujet n\'a pas déjà été abordé avant de créer le sujet</div><hr>');
+                echo ('<div class="subTitle"> Si possible veuillez vérifier que le sujet n\'a pas déjà été abordé avant de créer le sujet</div><hr>');
 
+                echo ('<div class="all_input">');
                 echo ('<input class="input" type="text" placeholder="Titre" name="titre"');
                 if (!$valide) 
                 {
@@ -70,7 +71,7 @@
 
                 if ($message != "") 
                 {
-                    echo $message;
+                    echo ("<div class='message'>" . $message . "</div>");
                 }
             ?>
             <input class="button" type="submit" value="Valider">
