@@ -240,9 +240,8 @@ a:active
     font-weight: bold;
 }
 
-/**************************** CREER REDACTEUR *************************/
+/**************************** CREER REDACTEUR ET LOGIN *************************/
 
-/* Classe aussi utilisé pour login */
 .all_input
 {
     display: flex;
