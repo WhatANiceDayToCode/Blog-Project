@@ -254,3 +254,9 @@ a:active
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.bloc_bottom
+{
+    display: flex;
+    flex-direction: column;
+}
