@@ -118,9 +118,13 @@
                 ?>    
             </form>
             <hr>
-            Vous possedez déjà un compte ?
-            <a href="login.php"><input type="button" class="button" value="Se connecter"></a>
-            <a href="accueil.php">Retour à l'accueil</a>  
+            <div class="bloc_bottom">
+                <div class="connect">
+                    Vous possedez déjà un compte ?
+                    <a href="login.php"><input type="button" class="button" value="Se connecter"></a>
+                </div>
+                <a href="accueil.php">Retour à l'accueil</a> 
+            </div>
         </div>
     </body>
 </html>
