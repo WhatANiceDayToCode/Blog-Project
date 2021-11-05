@@ -112,9 +112,10 @@
                             echo(' value = "'.$_POST['password'].'"');
                         }
                         echo ('>');
-                    echo ('</div>')               
+
+                        echo ('<input class="button" type="submit" value="Valider">');
+                    echo ('</div>');              
                 ?>    
-                <input class="button" type="submit" value="Valider">
             </form>
             <hr>
             Vous possedez déjà un compte ?
