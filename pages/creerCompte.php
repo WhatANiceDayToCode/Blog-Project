@@ -119,7 +119,7 @@
             </form>
             <hr>
             Vous possedez déjà un compte ?
-            <a href="login.php"> Se connecter </a><br>
+            <a href="login.php"><input type="button" class="button" value="Se connecter"></a>
             <a href="accueil.php">Retour à l'accueil</a>  
         </div>
     </body>
