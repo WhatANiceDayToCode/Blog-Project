@@ -149,12 +149,12 @@
                     } 
                     else 
                     {
-                        echo ("Aucun sujet n'existe avec ce code, merci de revenir à l'accueil<br><br>");
+                        echo ("Aucun sujet n'existe avec ce code, merci de revenir à l'accueil");
                     }
                 } 
                 else 
                 {
-                    echo ("Il y a une erreur dans le chargement de la page, merci de revenir à l'accueil<br><br>");
+                    echo ("Il y a une erreur dans le chargement de la page, merci de revenir à l'accueil");
                 }
             ?>
             <a href="accueil.php">Retour a l'accueil</a>
