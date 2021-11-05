@@ -73,52 +73,53 @@
             }
         ?>
         <div class="sect_inc">
-        <form action="" method="post">
-            <?php
-                echo ('<div class="title">Créer un Compte</div> <hr><br>');
-                // echo ('Nom : ');
-                echo ('<input class="input" type="text" placeholder="Nom" name="nom"');
-                if (!$valide) 
-                {
-                    echo(' value = "'.$_POST['nom'].'"');
-                }
-                echo ('><br>');
-                // echo ('Prenom :');
-                echo ('<br><input class="input" type="text" placeholder="Prénom" name="prenom"');
-                if (!$valide) 
-                {
-                    echo(' value = "'.$_POST['prenom'].'"');
-                }
-                echo ('><br>');
-                // echo ('Mail :');
-                echo ('<br><input class="input" type="email" placeholder="Email" name="mail"');
-                if (!$valide) 
-                {
-                    echo(' value = "'.$_POST['mail'].'"');
-                }
-                echo ('><br>');
-                // echo ('Pseudo : ');
-                echo ('<br><input class="input" type="text" placeholder="Pseudo" name="pseudo"');
-                if (!$valide) 
-                {
-                    echo(' value = "'.$_POST['pseudo'].'"');
-                }
-                echo ('><br>');
-                // echo ('Mot de Passe : ');
-                echo ('<br><input class="input" type="password" placeholder="Mot de Passe" name="password"');
-                if (!$valide) 
-                {
-                    echo(' value = "'.$_POST['password'].'"');
-                }
-                echo ('><br><br>');               
-            ?>    
-            <input class="button" type="submit" value="Valider"><br><br>
-        </form>
-        <hr>
-        <br>
-        Vous possedez déjà un compte ?
-        <a href="login.php"> Se connecter </a><br>
-        <a href="accueil.php">Retour à l'accueil</a>  
+            <form action="" method="post">
+                <?php
+                    echo ('<div class="title">Créer un Compte</div> <hr>');
+                    
+                    echo ('<div class ="all_input">');
+                        echo ('<input class="input" type="text" placeholder="Nom" name="nom"');
+                        if (!$valide) 
+                        {
+                            echo(' value = "'.$_POST['nom'].'"');
+                        }
+                        echo ('>');
+                        
+                        echo ('<input class="input" type="text" placeholder="Prénom" name="prenom"');
+                        if (!$valide) 
+                        {
+                            echo(' value = "'.$_POST['prenom'].'"');
+                        }
+                        echo ('>');
+                        
+                        echo ('<input class="input" type="email" placeholder="Email" name="mail"');
+                        if (!$valide) 
+                        {
+                            echo(' value = "'.$_POST['mail'].'"');
+                        }
+                        echo ('>');
+                        
+                        echo ('<input class="input" type="text" placeholder="Pseudo" name="pseudo"');
+                        if (!$valide) 
+                        {
+                            echo(' value = "'.$_POST['pseudo'].'"');
+                        }
+                        echo ('>');
+                    
+                        echo ('<input class="input" type="password" placeholder="Mot de Passe" name="password"');
+                        if (!$valide) 
+                        {
+                            echo(' value = "'.$_POST['password'].'"');
+                        }
+                        echo ('>');
+                    echo ('</div>')               
+                ?>    
+                <input class="button" type="submit" value="Valider">
+            </form>
+            <hr>
+            Vous possedez déjà un compte ?
+            <a href="login.php"> Se connecter </a><br>
+            <a href="accueil.php">Retour à l'accueil</a>  
         </div>
     </body>
 </html>
