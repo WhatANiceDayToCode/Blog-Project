@@ -242,6 +242,7 @@ a:active
 
 /**************************** CREER REDACTEUR *************************/
 
+/* Classe aussi utilisé pour login */
 .all_input
 {
     display: flex;
