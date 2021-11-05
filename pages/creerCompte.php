@@ -65,19 +65,14 @@
         ?>
     </head>
     <body>
-        <?php
-            if ($message != "") 
-            {
-                echo $message;
-                echo ("<br><br>");
-            }
-        ?>
+        
         <div class="sect_inc">
             <form action="" method="post">
                 <?php
                     echo ('<div class="title">Créer un Compte</div> <hr>');
                     
                     echo ('<div class ="all_input">');
+                    
                         echo ('<input class="input" type="text" placeholder="Nom" name="nom"');
                         if (!$valide) 
                         {
@@ -112,6 +107,11 @@
                             echo(' value = "'.$_POST['password'].'"');
                         }
                         echo ('>');
+
+                        if ($message != "") 
+                        {
+                            echo ("<div class='message'>" . $message . "</div>");
+                        }
 
                         echo ('<input class="button" type="submit" value="Valider">');
                     echo ('</div>');              

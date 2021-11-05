@@ -83,7 +83,7 @@
             <div class="bloc_bottom">
                 <div>
                     Vous n'avez pas encore de compte ?
-                    <a href="creerCompte.php"> Créez en un !</a>
+                    <a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>
                 </div>
                 <a href="accueil.php">Retour à l'accueil</a>
             </div>
