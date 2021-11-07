@@ -80,7 +80,7 @@
                         echo ('<hr>');
 
                         //Inclure toute les reponses avec un select et un foreach
-                        $select_stmt = $objPdo->prepare('SELECT texteReponse, dateRep, pseudo 
+                        $select_stmt = $objPdo->prepare('SELECT idReponse, texteReponse, dateRep, pseudo 
                                                         FROM reponse rep, redacteur redac
                                                         WHERE idSujet = ?
                                                         AND rep.idRedacteur = redac.idRedacteur
@@ -113,7 +113,7 @@
                                     if ($_SESSION['pseudo'] == $reponse['pseudo']) 
                                     {
                                         echo ('<div class="bloc_bas_reponse">');
-                                            echo ('<a href="">Supprimer la reponse</a>');
+                                            echo ('<a href="supprimerReponse?idReponse='.$reponse['idReponse'].'">Supprimer la reponse</a>');
                                             echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');
                                         echo ('</div>');
                                     }
