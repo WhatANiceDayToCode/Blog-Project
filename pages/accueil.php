@@ -11,7 +11,7 @@
         <script language="javascript" type="text/javascript">
             function validationDeco() 
             {
-                if (confirm("Etes vous sur de vouoir vous déconnecter ?")) 
+                if (confirm("Etes vous sur de vouloir vous déconnecter ?")) 
                 {
                     return true;
                 }

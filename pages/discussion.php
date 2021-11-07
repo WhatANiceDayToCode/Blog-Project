@@ -11,6 +11,20 @@
         <link rel="stylesheet" href="./style.css">
         <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
 
+        <script language="javascript" type="text/javascript">
+            function validationSuppr() 
+            {
+                if (confirm("Etes vous sur de vouloir supprimer cet élèment ?")) 
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        </script>
+
         <?php
             include_once('../connexion/connexion.php');
             session_start();
@@ -113,7 +127,7 @@
                                     if ($_SESSION['pseudo'] == $reponse['pseudo']) 
                                     {
                                         echo ('<div class="bloc_bas_reponse">');
-                                            echo ('<a href="supprimerReponse?idReponse='.$reponse['idReponse'].'">Supprimer la reponse</a>');
+                                            echo ('<a href="supprimerReponse.php?idReponse='.$reponse['idReponse'].'" onclick="return validationSuppr()">Supprimer la reponse</a>');
                                             echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');
                                         echo ('</div>');
                                     }

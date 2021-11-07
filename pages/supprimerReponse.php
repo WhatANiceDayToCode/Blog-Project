@@ -1,5 +1,5 @@
 <?php
-    include_once('connexion.php');
+    include_once('../connexion/connexion.php');
     session_start();
     $idReponse = $_GET['idReponse'];
     
@@ -7,7 +7,7 @@
                                      FROM reponse
                                      WHERE idReponse = ?');
     
-    $delete_stmt->bindValue(1, trim($idSujet), PDO::PARAM_INT);
+    $delete_stmt->bindValue(1, trim($idReponse), PDO::PARAM_INT);
 
     $delete_stmt->execute();
 
