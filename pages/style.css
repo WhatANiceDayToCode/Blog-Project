@@ -168,23 +168,23 @@ a:active
     flex-direction: column;
 }
 
-#title_commentaire
+#title_reponse
 {
     text-align:left;
     padding:10px;
 }
 
-.commentaire_pseudo
+.reponse_pseudo
 {
     text-align:left;
 }
 
-.commentaire_date
+.reponse_date
 {
     text-align:right;
 }
 
-.section_commentaire
+.section_reponse
 {
     display: flex;
     flex-direction: column;
@@ -192,9 +192,27 @@ a:active
     
 }
 
-.section_commentaire *
+.section_reponse *
 {
     margin: 10px;
+}
+
+.bloc_bas_reponse
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bloc_bas_reponse a
+{
+    color: red;
+    transition: all 0.25s;
+}
+
+.bloc_bas_reponse a:hover
+{
+    color: rgb(252, 112, 112);
 }
 
 /**************************** ACCUEIL *************************/

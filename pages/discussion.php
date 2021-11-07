@@ -92,7 +92,8 @@
 
                         $result = $select_stmt->fetchAll();
 
-                        echo ('<div id="title_commentaire" class="title">Commentaires : </div><hr>');
+                        //Affichage de chaque réponse
+                        echo ('<div id="title_reponse" class="title">Réponse : </div><hr>');
                         if ($result != null) 
                         {
                             foreach ($result as $reponse) 
@@ -105,9 +106,22 @@
                                     echo (' writer');
                                 }
                                 echo ('">');
-                                    echo ('<div class="commentaire_pseudo">'.$reponse["pseudo"].'</div>');
+                                    echo ('<div class="reponse_pseudo">'.$reponse["pseudo"].'</div>');
                                     echo ($reponse["texteReponse"]);
-                                    echo ('<div class="commentaire_date"> le '.$dateSujet.'</div>');
+                                    
+                                    //Ajout de l'option supprimer si on est connecté
+                                    if ($_SESSION['pseudo'] == $reponse['pseudo']) 
+                                    {
+                                        echo ('<div class="bloc_bas_reponse">');
+                                            echo ('<a href="">Supprimer la reponse</a>');
+                                            echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');
+                                        echo ('</div>');
+                                    }
+                                    else
+                                    {
+                                        echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');
+                                    }
+                                    
                                 echo ('</div>');
                                 echo ('<hr>');
                             }
@@ -117,11 +131,11 @@
 
 
                         // Afficher la saisie de commentaire uniquement si l'on est connecté
-                        echo ('<div class ="section_commentaire">');
+                        echo ('<div class ="section_reponse">');
                         if ($connecte) 
                         {
                             // Section reponse
-                            echo ('<div class="title">Ajouter un commentaire</div>');
+                            echo ('<div class="title">Ajouter une réponse</div>');
 
                             echo ('<form method="POST">');
 
