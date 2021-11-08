@@ -127,7 +127,7 @@
                                     if ($_SESSION['pseudo'] == $reponse['pseudo']) 
                                     {
                                         echo ('<div class="bloc_bas_reponse">');
-                                            echo ('<a href="supprimerReponse.php?idReponse='.$reponse['idReponse'].'" onclick="return validationSuppr()">Supprimer la reponse</a>');
+                                            echo ('<a href="supprimerReponse.php?idReponse='.$reponse['idReponse'].'" onclick="return validationSuppr()">Supprimer la réponse</a>');
                                             echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');
                                         echo ('</div>');
                                     }
