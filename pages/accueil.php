@@ -84,7 +84,7 @@
                     //Affichage des sujets 
 
                     //On recupere uniquement les attributs necessaires ainsi que le pseudo du redacteur
-                    $sujetList = $objPdo->query('SELECT titreSujet, dateSujet, pseudo 
+                    $sujetList = $objPdo->query('SELECT idSujet, titreSujet, dateSujet, pseudo 
                                                  FROM sujet s, redacteur r
                                                  WHERE s.idRedacteur = r.idRedacteur 
                                                  ORDER BY dateSujet DESC');
