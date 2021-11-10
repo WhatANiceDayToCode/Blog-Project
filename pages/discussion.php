@@ -91,6 +91,11 @@
                             echo ('<div>Le '.$dateSujet.'</div>');
                         echo ('</div>');
                         echo ('<div class="subject">' . $sujet['texteSujet'].'</div>');
+                        //Bouton pour supprimer le sujet uniquement si l'on est connecté
+                        if ($connecte && $_SESSION['pseudo'] == $sujet['pseudo']) 
+                        {
+                            echo ('<div class="lien_suppression_sujet"><a href="suppressionSujet.php?idSujet='.$sujet['idSujet'].'">Supprimer le sujet</a></div>');
+                        }
                         echo ('<hr>');
 
                         //Inclure toute les reponses avec un select et un foreach
@@ -124,8 +129,7 @@
                                     echo ($reponse["texteReponse"]);
                                     
                                     //Ajout de l'option supprimer si on est connecté
-                                    if ($connecte && $_SESSION['pseudo'] 
-                                    == $reponse['pseudo']) 
+                                    if ($connecte && $_SESSION['pseudo'] == $reponse['pseudo']) 
                                     {
                                         echo ('<div class="bloc_bas_reponse">');
                                             echo ('<a href="supprimerReponse.php?idReponse='.$reponse['idReponse'].'" onclick="return validationSuppr()">Supprimer la réponse</a>');

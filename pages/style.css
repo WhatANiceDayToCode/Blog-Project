@@ -192,15 +192,19 @@ a:active {
     justify-content: space-between;
 }
 
-.bloc_bas_reponse a {
+.bloc_bas_reponse a , .lien_suppression_sujet a{
     color: red;
     transition: all 0.25s;
 }
 
-.bloc_bas_reponse a:hover {
+.bloc_bas_reponse a:hover , .lien_suppression_sujet a:hover{
     color: rgb(252, 112, 112);
 }
 
+.lien_suppression_sujet 
+{
+    text-align: right;
+}
 
 /**************************** ACCUEIL *************************/
 
