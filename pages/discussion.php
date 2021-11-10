@@ -125,7 +125,8 @@
                                     
                                     //Ajout de l'option supprimer si on est connecté
                                     // Début bug
-                                    if ($_SESSION['pseudo'] == $reponse['pseudo']) 
+                                    if ($connecte && $_SESSION['pseudo'] 
+                                    == $reponse['pseudo']) 
                                     {
                                         echo ('<div class="bloc_bas_reponse">');
                                             echo ('<a href="supprimerReponse.php?idReponse='.$reponse['idReponse'].'" onclick="return validationSuppr()">Supprimer la réponse</a>');
