@@ -1,13 +1,13 @@
 /* Couleurs Charte Graphique Hexa */
 
-:root 
-{
+:root {
     --primary: #1C1C1C;
     --primaryHighlight: #242424;
     --color: #9BBED6;
     --colorHighlight: #B8E2FF;
     --white: #EFFCF9;
 }
+
 
 /* Color Theme Swatches in RGBA
 .Projet_PHP-1-rgba { color: rgba(28, 28, 28, 1); }
@@ -16,8 +16,7 @@
 .Projet_PHP-4-rgba { color: rgba(184, 226, 255, 1); }
 .Projet_PHP-5-rgba { color: rgba(239, 252, 249, 1); } */
 
-body 
-{
+body {
     background-color: var(--primaryHighlight);
     color: var(--white);
     /* background-image: url("./img/rain_bk.jpg"); 
@@ -28,24 +27,23 @@ body
     font-size: larger;
 }
 
-body::-webkit-scrollbar 
-{
+body::-webkit-scrollbar {
     display: none;
 }
 
+
 /* Titre de section */
 
-.title 
-{
+.title {
     font-size: 2rem;
     margin-bottom: 15px;
 }
 
-.subTitle 
-{
+.subTitle {
     font-size: 1rem;
     font-style: italic;
 }
+
 
 /* Liens */
 
@@ -53,20 +51,18 @@ a {
     color: var(--color);
 }
 
-a:hover 
-{
+a:hover {
     color: var(--colorHighlight);
 }
 
-a:active 
-{
+a:active {
     color: var(--white);
 }
 
+
 /* Section incurvée */
 
-.sect_inc
-{
+.sect_inc {
     background: var(--primaryHighlight);
     box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
     border-radius: 20px;
@@ -76,10 +72,10 @@ a:active
     text-align: center;
 }
 
+
 /* Inputs */
 
-.input 
-{
+.input {
     border-radius: 20px;
     height: 20px;
     width: 20%;
@@ -91,12 +87,11 @@ a:active
     box-shadow: inset 5px 5px 8px #1a1a1a, inset -5px -5px 8px #2e2e2e;
     color: var(--white);
     border-style: none;
-    font-size: 1.1em;  
+    font-size: 1.1em;
     font-family: 'Zen Kurenaido', sans-serif;
 }
 
-.area 
-{
+.area {
     padding: 25px;
     width: auto;
     max-width: 80%;
@@ -104,15 +99,14 @@ a:active
     overflow: auto;
 }
 
-.area::-webkit-scrollbar 
-{
+.area::-webkit-scrollbar {
     display: none;
 }
 
+
 /* Bouton valider */
 
-.button 
-{
+.button {
     border-radius: 20px;
     height: 40px;
     padding: 0 10px;
@@ -125,156 +119,145 @@ a:active
     font-size: 1em;
 }
 
-.button:active 
-{
+.button:active {
     background-color: var(--white);
     color: var(--primary);
 }
 
+
 /* Message d'erreur */
 
-.message 
-{
+.message {
     color: var(--color);
     font-style: italic;
     font-weight: bolder;
 }
 
+
 /**************************** DISCUSSION *************************/
-.reponse
-{
+
+.reponse {
     padding: 10px;
 }
 
-.writer 
-{
+.writer {
     background-color: rgba(155, 190, 214, 0.8);
     box-shadow: inset 20px 20px 60px var(--colorHighlight), inset -20px -20px 60px var(--colorHighlight);
     border-radius: 10px;
     color: var(--primary);
 }
 
-.subject 
-{
+.subject {
     border-radius: 10px;
     background: #1C1C1C;
     box-shadow: -5px -5px 0px #202020;
     padding-bottom: 5px;
 }
 
-.info_sujet
-{
+.info_sujet {
     display: flex;
     flex-direction: column;
 }
 
-#title_reponse
-{
-    text-align:left;
-    padding:10px;
+#title_reponse {
+    text-align: left;
+    padding: 10px;
 }
 
-.reponse_pseudo
-{
-    text-align:left;
+.reponse_pseudo {
+    text-align: left;
 }
 
-.reponse_date
-{
-    text-align:right;
+.reponse_date {
+    text-align: right;
 }
 
-.section_reponse
-{
+.section_reponse {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
-.section_reponse *
-{
+.section_reponse * {
     margin: 10px;
 }
 
-.bloc_bas_reponse
-{
+.bloc_bas_reponse {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.bloc_bas_reponse a
-{
+.bloc_bas_reponse a {
     color: red;
     transition: all 0.25s;
 }
 
-.bloc_bas_reponse a:hover
-{
+.bloc_bas_reponse a:hover {
     color: rgb(252, 112, 112);
 }
 
+
 /**************************** ACCUEIL *************************/
 
-.option_under_title * 
-{
+.option_under_title * {
     margin-right: 1%;
     margin-left: 1%;
     margin-bottom: 100%;
 }
 
-.option_under_title 
-{
+.option_under_title {
     margin-bottom: 2%;
 }
 
+
 /**************************** TABLEAU *************************/
 
-.tab_title 
-{
+
+/* Centrer */
+
+.center button {
+    text-align: center;
+}
+
+.tab_title {
     font-size: 1.5rem;
     margin: 2%;
 }
 
-.tab_entier
-{
-    border-collapse: collapse;    
+.tab_entier {
+    border-collapse: collapse;
     border: var(--white) solid 2px;
 }
 
-.tab_entier tr td 
-{
-    text-align: left;
+.tab_entier tr td {
+    /* text-align: left; */
     width: 25%;
     border-left: var(--white) solid 2px;
     border-right: var(--white) solid 2px;
 }
 
-#titre_colonne td 
-{
+#titre_colonne td {
     text-align: center;
     font-size: 1.3em;
     font-weight: bold;
 }
 
+
 /**************************** CREER REDACTEUR, SUJET ET LOGIN *************************/
 
-.all_input
-{
+.all_input {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.all_input * 
-{
+.all_input * {
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
-.bloc_bottom
-{
+.bloc_bottom {
     display: flex;
     flex-direction: column;
 }

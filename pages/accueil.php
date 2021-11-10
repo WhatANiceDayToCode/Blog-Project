@@ -70,9 +70,9 @@
                 </div>    
                 <table class="tab_entier">
                 <tr id="titre_colonne">
-                    <td>
+                    <!-- <td>
                         ID sujet
-                    </td>
+                    </td> -->
                     <td>
                         Titre
                     </td>
@@ -98,11 +98,11 @@
                         $dateSujet = date('d/m/Y à h:i:s', strtotime($sujet['dateSujet']));
 
                         echo ('<tr>');
-                        echo ('<td>Sujet numéro '.$sujet['idSujet'].'</td>');
+                        // echo ('<td>Sujet numéro '.$sujet['idSujet'].'</td>');
                         echo ('<td>'.$sujet['titreSujet'].'</td>');
                         echo ('<td>'.$sujet['pseudo'].'</td>');
                         echo ('<td>Créé le '.$dateSujet.'</td>');
-                        echo ('<td><a href="discussion.php?idSujet='.$sujet['idSujet'].'"><input class="button" type="button" value="Acceder"></a></td>');
+                        echo ('<td class="center"><a href="discussion.php?idSujet='.$sujet['idSujet'].'"><input class="button" type="button" value="Accéder"></a></td>');
                         echo ('</tr>');
                     }
                 ?>
