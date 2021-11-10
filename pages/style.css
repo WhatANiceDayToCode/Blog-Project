@@ -136,19 +136,22 @@ a:active {
 
 /**************************** DISCUSSION *************************/
 
-.reponse {
+.reponse 
+{
     padding: 10px;
-    text-overflow: clip;
+    overflow-wrap: break-word;
 }
 
-.writer {
+.writer 
+{
     background-color: rgba(155, 190, 214, 0.8);
     box-shadow: inset 20px 20px 60px var(--colorHighlight), inset -20px -20px 60px var(--colorHighlight);
     border-radius: 10px;
     color: var(--primary);
 }
 
-.subject {
+.subject 
+{
     border-radius: 10px;
     background: #1C1C1C;
     box-shadow: -5px -5px 0px #202020;
@@ -189,15 +192,19 @@ a:active {
     justify-content: space-between;
 }
 
-.bloc_bas_reponse a {
+.bloc_bas_reponse a , .lien_suppression_sujet a{
     color: red;
     transition: all 0.25s;
 }
 
-.bloc_bas_reponse a:hover {
+.bloc_bas_reponse a:hover , .lien_suppression_sujet a:hover{
     color: rgb(252, 112, 112);
 }
 
+.lien_suppression_sujet 
+{
+    text-align: right;
+}
 
 /**************************** ACCUEIL *************************/
 
