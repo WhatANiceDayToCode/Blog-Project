@@ -34,8 +34,6 @@
             <div class="title">Suppression du sujet</div>
             
 
-
-
             <div class="bloc_validation">
                 <form action="" method="post">
                     <input type="button" class="button" value="Supprimer">
