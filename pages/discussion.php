@@ -26,6 +26,7 @@
         </script>
 
         <?php
+            //Variable utilisé
             include_once('../connexion/connexion.php');
             session_start();
             $_SESSION['provenance'] = 'discussion.php';

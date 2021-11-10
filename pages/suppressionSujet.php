@@ -39,8 +39,12 @@
             <div class="bloc_validation">
                 <form action="" method="post">
                     <input type="button" value="Supprimer">
+                
+                    <?php
+                        echo ('<a href="'.$_SESSION['provenance'].'">Retourner au sujet</a>');
+                    ?>
+                    <a href="accueil.php">Retourner à l'accueil</a>
                 </form>
-                <a href="accueil.php"></a>
             </div>
         </div>
     </body>
