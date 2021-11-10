@@ -38,7 +38,7 @@
 
             <div class="bloc_validation">
                 <form action="" method="post">
-                    <input type="button" value="Supprimer">
+                    <input type="button" class="button" value="Supprimer">
                 
                     <?php
                         echo ('<a href="'.$_SESSION['provenance'].'">Retourner au sujet</a>');
