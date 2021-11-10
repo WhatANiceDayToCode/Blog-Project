@@ -124,7 +124,6 @@
                                     echo ($reponse["texteReponse"]);
                                     
                                     //Ajout de l'option supprimer si on est connecté
-                                    // Début bug
                                     if ($connecte && $_SESSION['pseudo'] 
                                     == $reponse['pseudo']) 
                                     {
@@ -133,7 +132,6 @@
                                             echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');
                                         echo ('</div>');
                                     }
-                                    // Fin bug
                                     else
                                     {
                                         echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');

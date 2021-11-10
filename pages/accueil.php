@@ -70,9 +70,6 @@
                 </div>    
                 <table class="tab_entier">
                 <tr id="titre_colonne">
-                    <!-- <td>
-                        ID sujet
-                    </td> -->
                     <td>
                         Titre
                     </td>
@@ -98,7 +95,6 @@
                         $dateSujet = date('d/m/Y à h:i:s', strtotime($sujet['dateSujet']));
 
                         echo ('<tr>');
-                        // echo ('<td>Sujet numéro '.$sujet['idSujet'].'</td>');
                         echo ('<td>'.$sujet['titreSujet'].'</td>');
                         echo ('<td>'.$sujet['pseudo'].'</td>');
                         echo ('<td>Créé le '.$dateSujet.'</td>');
