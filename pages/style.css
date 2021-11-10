@@ -106,7 +106,7 @@ a:active {
 
 /* Bouton valider */
 
-.button {
+.button, button {
     border-radius: 20px;
     height: 40px;
     padding: 0 10px;
