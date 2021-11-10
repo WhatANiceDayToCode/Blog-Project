@@ -12,7 +12,9 @@
 
             $idOK = false;
 
-            
+            if ($connecte && array_key_exists('idSujet', $_GET)) {
+                # code...
+            }
         ?>
     </head>
     <body>
