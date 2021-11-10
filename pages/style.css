@@ -138,6 +138,7 @@ a:active {
 
 .reponse {
     padding: 10px;
+    text-overflow: clip;
 }
 
 .writer {
@@ -232,7 +233,7 @@ a:active {
 
 .tab_entier tr td {
     /* text-align: left; */
-    width: 25%;
+    width: 40%;
     border-left: var(--white) solid 2px;
     border-right: var(--white) solid 2px;
 }
