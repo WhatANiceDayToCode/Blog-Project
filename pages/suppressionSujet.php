@@ -19,6 +19,9 @@
         ?>
     </head>
     <body>
-        
+        <div class="sect_inc">
+            <div class="title">Suppression du sujet</div>
+            
+        </div>
     </body>
 </html>
