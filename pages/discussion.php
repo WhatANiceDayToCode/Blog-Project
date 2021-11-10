@@ -14,7 +14,7 @@
         <script language="javascript" type="text/javascript">
             function validationSuppr() 
             {
-                if (confirm("Etes vous sur de vouloir supprimer cet élèment ?")) 
+                if (confirm("Êtes vous sur de vouloir supprimer cet élèment ?")) 
                 {
                     return true;
                 }
@@ -124,6 +124,7 @@
                                     echo ($reponse["texteReponse"]);
                                     
                                     //Ajout de l'option supprimer si on est connecté
+                                    // Début bug
                                     if ($_SESSION['pseudo'] == $reponse['pseudo']) 
                                     {
                                         echo ('<div class="bloc_bas_reponse">');
@@ -131,6 +132,7 @@
                                             echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');
                                         echo ('</div>');
                                     }
+                                    // Fin bug
                                     else
                                     {
                                         echo ('<div class="reponse_date"> le '.$dateSujet.'</div>');
