@@ -11,35 +11,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
 
     <?php
-    session_start();
-    include_once("../connexion/connexion.php");
-    $message = "";
-    $connecte = $_SESSION['connection'];
-    $valide = true;
+        session_start();
+        include_once("../connexion/connexion.php");
+        $message = "";
+        $connecte = $_SESSION['connection'];
+        $valide = true;
 
-    if ($connecte && array_key_exists('titre', $_POST) && array_key_exists('texteSujet', $_POST)) {
-        if ($_POST['titre'] != "" && $_POST['texteSujet'] != "") {
-            $message = '';
+        if ($connecte && array_key_exists('titre', $_POST) && array_key_exists('texteSujet', $_POST)) 
+        {
+            if ($_POST['titre'] != "" && $_POST['texteSujet'] != "") 
+            {
+                $message = '';
 
-            // Recuperer l'ID du redacteur
-            $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
-            $select_stmt->bindValue(1, trim($_SESSION['pseudo']), PDO::PARAM_STR);
-            $select_stmt->execute();
-            $idRedacteur = $select_stmt->fetch()['idRedacteur'];
+                // Recuperer l'ID du redacteur
+                $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
+                $select_stmt->bindValue(1, trim($_SESSION['pseudo']), PDO::PARAM_STR);
+                $select_stmt->execute();
+                $idRedacteur = $select_stmt->fetch()['idRedacteur'];
 
-            // Inserer la reponse dans la BD
-            $insert_stmt = $objPdo->prepare("INSERT INTO sujet (idRedacteur,titreSujet,texteSujet,dateSujet) VALUES(? ,? ,? ,CURRENT_TIMESTAMP())");
-            $insert_stmt->bindValue(1, $idRedacteur, PDO::PARAM_INT);
-            $insert_stmt->bindValue(2, trim($_POST['titre']), PDO::PARAM_STR);
-            $insert_stmt->bindValue(3, trim($_POST['texteSujet']), PDO::PARAM_STR);
-            $insert_stmt->execute();
+                // Inserer la reponse dans la BD
+                $insert_stmt = $objPdo->prepare("INSERT INTO sujet (idRedacteur,titreSujet,texteSujet,dateSujet) VALUES(? ,? ,? ,CURRENT_TIMESTAMP())");
+                $insert_stmt->bindValue(1, $idRedacteur, PDO::PARAM_INT);
+                $insert_stmt->bindValue(2, trim($_POST['titre']), PDO::PARAM_STR);
+                $insert_stmt->bindValue(3, trim($_POST['texteSujet']), PDO::PARAM_STR);
+                $insert_stmt->execute();
 
-            header('Location:' . $_SESSION['provenance']);
-        } else {
-            $valide = false;
-            $message = "Merci de bien saisir tout les champs afin de pouvoir créer le sujet";
+                header('Location:' . $_SESSION['provenance']);
+            } 
+            else 
+            {
+                $valide = false;
+                $message = "Merci de bien saisir tout les champs afin de pouvoir créer le sujet";
+            }
         }
-    }
 
     ?>
 </head>
@@ -62,12 +66,12 @@
                 }
                 echo ('>');
 
-                echo ('<textarea class="area input" type="text" placeholder="Texte du Sujet" name="texteSujet"');
+                echo ('<textarea class="area input" type="text" placeholder="Texte du Sujet" name="texteSujet" minlength="5" maxlength="200" rows="10" cols="100">');
                 if (!$valide) 
                 {
-                    echo (' value = "' . $_POST['texteSujet'] . '"');
+                    echo ($_POST['texteSujet']);
                 }
-                echo ('rows="10" cols="100"></textarea>');
+                echo ('</textarea>');
 
                 if ($message != "") 
                 {
