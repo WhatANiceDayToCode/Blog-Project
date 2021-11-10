@@ -157,7 +157,7 @@
                                 //Affichage du pseudo, et d'un formulaire de commentaire
                                 echo ('<div class="subTitle"> Votre pseudo : '.$pseudo.'</div>');
 
-                                echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." minlength="5" maxlength="500" rows="5" cols="400"></textarea>');
+                                echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." minlength="5" maxlength="200" rows="5" cols="400"></textarea>');
                                 echo ('<input class="button" type="submit" value="Poster ma réponse" name="submit_reponse"/>');
 
                             echo ('</form>');
