@@ -34,7 +34,9 @@
             <div class="title">
                 Suppression du sujet
             </div>
-            div
+            <div class="info_suppr_sujet">
+                Attention, Si vous venez à supprimer ce sujet, vous supprimerez également toutes les réponses liées à ce sujet. La suppresion seras irréversible
+            </div>
             <form action="" method="post">
                 <button type="button" value="supprimer">Suppression du menu</button>
                 <?php
