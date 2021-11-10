@@ -1,1 +1,1 @@
-A la fin du projet, bine penser a supprimer ce fichier et a en mettre un sans les ID pour la BD afin qu'on puisse le publier sur le GitHub
+A la fin du projet, bien penser a supprimer ce fichier et a en mettre un sans les ID pour la BD afin qu'on puisse le publier sur le GitHub
