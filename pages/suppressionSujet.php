@@ -32,18 +32,17 @@
     <body>
         <div class="sect_inc">
             <div class="title">Suppression du sujet</div>
-            
+            <div>
 
-            <div class="bloc_validation">
-                <form action="" method="post">
-                    <input type="button" class="button" value="Supprimer">
-                
-                    <?php
-                        echo ('<a href="'.$_SESSION['provenance'].'">Retourner au sujet</a>');
-                    ?>
-                    <a href="accueil.php">Retourner à l'accueil</a>
-                </form>
             </div>
+                <form action="" method="post">
+                    <button type="button" value="supprimer">Suppression du menu</button>
+                    <?php
+                        echo ('<a href="'.$_SESSION['provenance'].'"><button type="button" class="button">Retourner au sujet</button></a>');
+                    ?>
+                </form>
+                <a href="accueil.php">Retourner à l'accueil</a>
         </div>
+        <input type="button" value="Suppression du menu">
     </body>
 </html>
