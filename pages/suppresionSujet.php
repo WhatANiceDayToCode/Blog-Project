@@ -10,10 +10,11 @@
             include_once("../connexion/connexion.php");
             session_start();
 
-            $idOK = false;
+            $idSujet = null;
 
-            if ($connecte && array_key_exists('idSujet', $_GET)) {
-                # code...
+            if ($connecte && array_key_exists('idSujet', $_GET)) 
+            {
+                $idSujet = $_GET['idSujet'];
             }
         ?>
     </head>
