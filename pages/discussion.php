@@ -163,7 +163,7 @@
                                 echo ('<div class="subTitle"> Votre pseudo : '.$pseudo.'</div>');
 
                                 echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." minlength="5" maxlength="200" rows="5" cols="400"></textarea>');
-                                echo ('<input class="button" type="submit" value="Poster ma réponse" name="submit_reponse"/>');
+                                echo ('<button type="submit">Poster ma réponse</button>');
 
                             echo ('</form>');
                         } 
@@ -173,10 +173,10 @@
 
                             echo ('<div>');
                                 // Proposition de connexion
-                                echo ('<a href="login.php"><input type="button" class="button" value="Se connecter"></a>');
+                                echo ('<a href="login.php"><button type="button">Se connecter</button></a>');
                                 // Ou d'inscription !
                                 echo (' ou ');
-                                echo ('<a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>');
+                                echo ('<a href="creerCompte.php"><button type="button">Créer un compte</button></a>');
                             echo ('</div>');
                         }
                         echo ('</div>');
