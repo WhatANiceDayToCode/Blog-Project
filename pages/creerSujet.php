@@ -78,7 +78,7 @@
                     echo ("<div class='message'>" . $message . "</div>");
                 }
             ?>
-            <input class="button" type="submit" value="Valider">
+            <button type="submit">Valider</button>
         </form>
         <a href="accueil.php">Retour à l'accueil</a>
     </div>
