@@ -76,14 +76,14 @@
                         }
                     ?>
 
-                    <input class="button" type="submit" value="Valider" onclick="return checkComplete()">
+                    <button type="submit">Valider</button>
                 </div>
             </form>
             <hr>
             <div class="bloc_bottom">
                 <div>
                     Vous n'avez pas encore de compte ?
-                    <a href="creerCompte.php"><input class="button" type="button" value="Créer un compte"></a>
+                    <a href="creerCompte.php"><button type="button">Créer un compte</button></a>
                 </div>
                 <a href="accueil.php">Retour à l'accueil</a>
             </div>
