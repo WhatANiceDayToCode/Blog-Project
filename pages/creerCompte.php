@@ -113,7 +113,7 @@
                             echo ("<div class='message'>" . $message . "</div>");
                         }
 
-                        echo ('<input class="button" type="submit" value="Valider">');
+                        echo ('<button type="submit">Valider</button>');
                     echo ('</div>');              
                 ?>    
             </form>
@@ -121,7 +121,7 @@
             <div class="bloc_bottom">
                 <div>
                     Vous possedez déjà un compte ?
-                    <a href="login.php"><input type="button" class="button" value="Se connecter"></a>
+                    <a href="login.php"><button type="button">Se connecter</button></a>
                 </div>
                 <a href="accueil.php">Retour à l'accueil</a> 
             </div>
