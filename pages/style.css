@@ -213,6 +213,22 @@ a:active {
     margin: 15px;
 }
 
+#form_suppr_sujet *
+{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#form_suppr_sujet
+{
+    margin-bottom: 15px;
+}
+
+#bouton_supprimer_sujet
+{
+    color : red;
+}
+
 /**************************** ACCUEIL *************************/
 
 .option_under_title * {

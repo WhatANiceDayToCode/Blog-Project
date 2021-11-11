@@ -56,8 +56,8 @@
             <div class="info_suppr_sujet">
                 Attention, Si vous venez à supprimer ce sujet, vous supprimerez également toutes les réponses liées à ce sujet. La suppresion seras irréversible
             </div>
-            <form action="" method="post">
-                <button type="submit" name="supprimer" value="supprimer">Suppression du menu</button>
+            <form id="form_suppr_sujet" action="" method="post">
+                <button id="bouton_supprimer_sujet" type="submit" name="supprimer" value="supprimer">Suppression du menu</button>
                 <?php
                     echo ('<a href="'.$_SESSION['provenance'].'"><button type="button" class="button">Retourner au sujet</button></a>');
                 ?>
