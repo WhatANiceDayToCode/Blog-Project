@@ -37,6 +37,7 @@
             $connecte = false;
             $sujet = null;
             $pseudo = "";
+            $message = "";
 
 
 
@@ -47,20 +48,27 @@
             }
 
             // Dans le cas ou l'on recharge la page et que l'on vient de publier un commentaire
-            if ($connecte && array_key_exists('idSujet', $_GET) && array_key_exists('reponse', $_POST) && $_POST['reponse'] != "") 
+            if ($connecte && array_key_exists('idSujet', $_GET) && array_key_exists('reponse', $_POST))
             {
-                // Recuperer l'ID du redacteur
-                $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
-                $select_stmt->bindValue(1, trim($pseudo), PDO::PARAM_STR);
-                $select_stmt->execute();
-                $idRedacteur = $select_stmt->fetch()['idRedacteur'];
+                if ($_POST['reponse'] != "")
+                {
+                    // Recuperer l'ID du redacteur
+                    $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
+                    $select_stmt->bindValue(1, trim($pseudo), PDO::PARAM_STR);
+                    $select_stmt->execute();
+                    $idRedacteur = $select_stmt->fetch()['idRedacteur'];
 
-                // Inserer la reponse dans la BD
-                $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) VALUES(? ,? ,CURRENT_TIMESTAMP() ,?)");
-                $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
-                $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
-                $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
-                $insert_stmt->execute();
+                    // Inserer la reponse dans la BD
+                    $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) VALUES(? ,? ,CURRENT_TIMESTAMP() ,?)");
+                    $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
+                    $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
+                    $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
+                    $insert_stmt->execute();
+                } 
+                else
+                {
+                    $message = "Merci de saisir une reponse";
+                }
             }
         ?>
     </head>
@@ -164,6 +172,10 @@
 
                                 echo ('<textarea class="input area" name="reponse" value="reponse" placeholder="Votre réponse..." minlength="5" maxlength="200" rows="5" cols="400"></textarea>');
                                 echo ('<button type="submit">Poster ma réponse</button>');
+                                if ($message != "") 
+                                {
+                                    echo ('<div class="message">'.$message.'</div>');
+                                }
 
                             echo ('</form>');
                         } 
