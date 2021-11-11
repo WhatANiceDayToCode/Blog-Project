@@ -98,7 +98,7 @@
                         echo ('<td>'.$sujet['titreSujet'].'</td>');
                         echo ('<td>'.$sujet['pseudo'].'</td>');
                         echo ('<td>Créé le '.$dateSujet.'</td>');
-                        echo ('<td class="center"><a href="discussion.php?idSujet='.$sujet['idSujet'].'"><input class="button" type="button" value="Accéder"></a></td>');
+                        echo ('<td class="center"><a href="discussion.php?idSujet='.$sujet['idSujet'].'"><button type="button">Accéder</button></a></td>');
                         echo ('</tr>');
                     }
                 ?>

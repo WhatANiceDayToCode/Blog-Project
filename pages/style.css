@@ -119,7 +119,8 @@ a:active {
     font-size: 1em;
 }
 
-.button:active {
+.button:active, button:active 
+{
     background-color: var(--white);
     color: var(--primary);
 }
