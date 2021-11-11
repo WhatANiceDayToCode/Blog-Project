@@ -106,7 +106,8 @@ a:active {
 
 /* Bouton valider */
 
-.button, button {
+.button,
+button {
     border-radius: 20px;
     height: 40px;
     padding: 0 10px;
@@ -119,8 +120,8 @@ a:active {
     font-size: 1em;
 }
 
-.button:active, button:active 
-{
+.button:active,
+button:active {
     background-color: var(--white);
     color: var(--primary);
 }
@@ -137,22 +138,19 @@ a:active {
 
 /**************************** DISCUSSION *************************/
 
-.reponse 
-{
+.reponse {
     padding: 10px;
     overflow-wrap: break-word;
 }
 
-.writer 
-{
+.writer {
     background-color: rgba(155, 190, 214, 0.8);
     box-shadow: inset 20px 20px 60px var(--colorHighlight), inset -20px -20px 60px var(--colorHighlight);
     border-radius: 10px;
     color: var(--primary);
 }
 
-.subject 
-{
+.subject {
     border-radius: 10px;
     background: #1C1C1C;
     box-shadow: -5px -5px 0px #202020;
@@ -193,42 +191,41 @@ a:active {
     justify-content: space-between;
 }
 
-.bloc_bas_reponse a , .lien_suppression_sujet a{
+.bloc_bas_reponse a,
+.lien_suppression_sujet a {
     color: red;
     transition: all 0.25s;
 }
 
-.bloc_bas_reponse a:hover , .lien_suppression_sujet a:hover{
+.bloc_bas_reponse a:hover,
+.lien_suppression_sujet a:hover {
     color: rgb(252, 112, 112);
 }
 
-.lien_suppression_sujet 
-{
+.lien_suppression_sujet {
     text-align: right;
 }
 
+
 /**************************** SUPPRESSION SUJET *************************/
 
-.info_suppr_sujet
-{
+.info_suppr_sujet {
     margin: 15px;
 }
 
-#form_suppr_sujet *
-{
+#form_suppr_sujet * {
     margin-left: 15px;
     margin-right: 15px;
 }
 
-#form_suppr_sujet
-{
+#form_suppr_sujet {
     margin-bottom: 15px;
 }
 
-#bouton_supprimer_sujet
-{
-    color : red;
+#bouton_supprimer_sujet {
+    color: red;
 }
+
 
 /**************************** ACCUEIL *************************/
 
@@ -292,4 +289,22 @@ a:active {
 .bloc_bottom {
     display: flex;
     flex-direction: column;
+}
+
+
+/* Logo accueil */
+
+.logo {
+    position: absolute;
+    /* position: fixed; */
+    display: inline-block;
+    margin: 0px;
+    top: 65px;
+    left: 50px;
+    z-index: 50;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
 }
