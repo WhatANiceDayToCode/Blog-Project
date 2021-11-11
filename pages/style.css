@@ -308,3 +308,9 @@ button:active {
     height: 40px;
     width: auto;
 }
+
+.warning {
+    height: 40px;
+    width: auto;
+    margin-top: 5px;
+}

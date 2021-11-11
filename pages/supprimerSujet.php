@@ -15,7 +15,9 @@
     <body>
         <div class="sect_inc">
             <div class="title">
+                <img class="warning" src="../img/warning.png" alt="warning"></img>
                 Suppression du sujet
+                <img class="warning" src="../img/warning.png" alt="warning"></img>
             </div>
             <div class="info_suppr_sujet">
                 Attention, Si vous venez à supprimer ce sujet, vous supprimerez également toutes les réponses liées à ce sujet. La suppresion seras irréversible
