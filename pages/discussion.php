@@ -95,7 +95,7 @@
                         //Bouton pour supprimer le sujet uniquement si l'on est connecté
                         if ($connecte && $_SESSION['pseudo'] == $sujet['pseudo']) 
                         {
-                            echo ('<div class="lien_suppression_sujet"><a href="suppressionSujet.php?idSujet='.$sujet['idSujet'].'">Supprimer le sujet</a></div>');
+                            echo ('<div class="lien_suppression_sujet"><a href="supprimerSujet.php?idSujet='.$sujet['idSujet'].'">Supprimer le sujet</a></div>');
                         }
                         echo ('<hr>');
 
