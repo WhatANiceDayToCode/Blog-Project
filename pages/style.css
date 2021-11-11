@@ -126,6 +126,11 @@ button:active {
     color: var(--primary);
 }
 
+.button:hover,
+button:hover {
+    color: var(--colorHighlight);
+}
+
 
 /* Message d'erreur */
 
