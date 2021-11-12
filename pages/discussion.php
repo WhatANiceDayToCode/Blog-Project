@@ -11,18 +11,8 @@
         <link rel="stylesheet" href="./style.css">
         <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
 
-        <script language="javascript" type="text/javascript">
-            function validationSuppr() 
-            {
-                if (confirm("Êtes vous sur de vouloir supprimer cet élèment ?")) 
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+        <script language="javascript" type="text/javascript" src="./script.js">
+            
         </script>
 
         <?php
