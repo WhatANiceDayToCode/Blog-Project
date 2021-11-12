@@ -18,7 +18,8 @@
             if (array_key_exists('nom',$_POST) && array_key_exists('prenom',$_POST) && array_key_exists('mail',$_POST)
                 && array_key_exists('pseudo',$_POST) && array_key_exists('password', $_POST)) 
             {
-                if ($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['mail'] != "" && $_POST['pseudo'] != "" && $_POST['password'] != "") 
+                if (trim($_POST['nom']) != "" && trim($_POST['prenom']) != "" && trim($_POST['mail'])!= "" 
+                    && trim($_POST['pseudo']) != "" && trim($_POST['password']) != "") 
                 {
                     //recuperation des info pour les mettres dans des variables
                     $nom = strip_tags(trim($_POST['nom']));
