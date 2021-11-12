@@ -62,7 +62,7 @@
                     $insert_stmt = $objPdo->prepare("INSERT INTO reponse (idSujet,idRedacteur,dateRep,texteReponse) VALUES(? ,? ,CURRENT_TIMESTAMP() ,?)");
                     $insert_stmt->bindValue(1, trim($_GET['idSujet']), PDO::PARAM_INT);
                     $insert_stmt->bindValue(2, $idRedacteur, PDO::PARAM_INT);
-                    $insert_stmt->bindValue(3, trim($_POST['reponse']), PDO::PARAM_STR);
+                    $insert_stmt->bindValue(3, strip_tags(trim($_POST['reponse']),'<br>'), PDO::PARAM_STR);
                     $insert_stmt->execute();
                 } 
                 else
