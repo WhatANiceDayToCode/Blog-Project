@@ -20,10 +20,17 @@
             {
                 if ($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['mail'] != "" && $_POST['pseudo'] != "" && $_POST['password'] != "") 
                 {
+                    //recuperation des info pour les mettres dans des variables
+                    $nom = strip_tags(trim($_POST['nom']));
+                    $prenom = strip_tags(trim($_POST['prenom']));
+                    $mail = strip_tags(trim($_POST['mail']));
+                    $pseudo = strip_tags(trim($_POST['pseudo']));
+                    $password = strip_tags(trim($_POST['password']));
+                    
                     $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE (pseudo = ? OR adresseMail = ?)');
 
-                    $select_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
-                    $select_stmt->bindValue(2, trim($_POST['mail']), PDO::PARAM_STR);
+                    $select_stmt->bindValue(1, $pseudo, PDO::PARAM_STR);
+                    $select_stmt->bindValue(2, $mail, PDO::PARAM_STR);
                     $select_stmt->execute();
     
                     $value = $select_stmt->fetchAll();
@@ -32,21 +39,18 @@
                     if($value == null) 
                     {
                         $insert_stmt = $objPdo->prepare('INSERT INTO redacteur (nom, prenom, adresseMail, pseudo, motDePasse) VALUES ( ? , ? , ? , ? , ?)');
-                        $insert_stmt->bindValue(1, trim($_POST['nom']), PDO::PARAM_STR);
-                        $insert_stmt->bindValue(2, trim($_POST['prenom']), PDO::PARAM_STR);
-                        $insert_stmt->bindValue(3, trim($_POST['mail']), PDO::PARAM_STR);
-                        $insert_stmt->bindValue(4, trim($_POST['pseudo']), PDO::PARAM_STR);
-                        $insert_stmt->bindValue(5, trim($_POST['password']), PDO::PARAM_STR);
+                        $insert_stmt->bindValue(1, $nom, PDO::PARAM_STR);
+                        $insert_stmt->bindValue(2, $prenom, PDO::PARAM_STR);
+                        $insert_stmt->bindValue(3, $mail, PDO::PARAM_STR);
+                        $insert_stmt->bindValue(4, $mail, PDO::PARAM_STR);
+                        $insert_stmt->bindValue(5, $password, PDO::PARAM_STR);
                         
                         $insert_stmt->execute();
-
-                        //A Supprimer apres
-                        $message = "effectué";
                         
                         $_SESSION['connection'] = true;
-                        $_SESSION['pseudo'] =  trim($_POST['pseudo']);
-                        $_SESSION['nom'] =  trim($_POST['nom']);
-                        $_SESSION['prenom'] =  trim($_POST['prenom']);
+                        $_SESSION['pseudo'] = $pseudo;
+                        $_SESSION['nom'] = $nom;
+                        $_SESSION['prenom'] = $prenom;
 
                         //redirection vers l'ancienne page 
                         header('Location:'.$_SESSION["provenance"]);

@@ -32,8 +32,8 @@
                 // Inserer la reponse dans la BD
                 $insert_stmt = $objPdo->prepare("INSERT INTO sujet (idRedacteur,titreSujet,texteSujet,dateSujet) VALUES(? ,? ,? ,CURRENT_TIMESTAMP())");
                 $insert_stmt->bindValue(1, $idRedacteur, PDO::PARAM_INT);
-                $insert_stmt->bindValue(2, strip_tags(trim($_POST['titre']),'<br>'), PDO::PARAM_STR);
-                $insert_stmt->bindValue(3, trim($_POST['texteSujet']), PDO::PARAM_STR);
+                $insert_stmt->bindValue(2, strip_tags(trim($_POST['titre'])), PDO::PARAM_STR);
+                $insert_stmt->bindValue(3, strip_tags(trim($_POST['texteSujet']),'<br>'), PDO::PARAM_STR);
                 $insert_stmt->execute();
 
                 header('Location:' . $_SESSION['provenance']);
