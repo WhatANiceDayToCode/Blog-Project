@@ -7,20 +7,8 @@
         <title>Accueil</title>
         <link rel="stylesheet" href="./style.css">
         <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
-
-        <script language="javascript" type="text/javascript">
-            function validationDeco() 
-            {
-                if (confirm("Etes vous sur de vouloir vous déconnecter ?")) 
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        </script>
+        <script language="javascript" type="text/javascript" src="./script.js"></script>
+        
         <?php           
             include_once('../connexion/connexion.php');
             session_start();
