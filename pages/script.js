@@ -1,5 +1,5 @@
 function validationDeco() {
-    if (confirm("Etes vous sur de vouloir vous déconnecter ?")) {
+    if (confirm("Êtes vous sur de vouloir vous déconnecter ?")) {
         return true;
     } else {
         return false;
@@ -7,7 +7,7 @@ function validationDeco() {
 }
 
 function validationSuppr() {
-    if (confirm("Êtes vous sur de vouloir supprimer cet élèment ?")) {
+    if (confirm("Êtes vous sur de vouloir supprimer cet élément ?")) {
         return true;
     } else {
         return false;
