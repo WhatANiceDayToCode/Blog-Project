@@ -50,7 +50,7 @@
             // Dans le cas ou l'on recharge la page et que l'on vient de publier un commentaire
             if ($connecte && array_key_exists('idSujet', $_GET) && array_key_exists('reponse', $_POST))
             {
-                if ($_POST['reponse'] != "")
+                if (trim($_POST['reponse']) != "")
                 {
                     // Recuperer l'ID du redacteur
                     $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');

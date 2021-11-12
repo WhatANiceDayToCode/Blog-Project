@@ -20,9 +20,7 @@
         if ($connecte && array_key_exists('titre', $_POST) && array_key_exists('texteSujet', $_POST)) 
         {
             if (trim($_POST['titre']) != "" && trim($_POST['texteSujet'] != "")) 
-            {
-                $message = '';
-
+            {                
                 // Recuperer l'ID du redacteur
                 $select_stmt = $objPdo->prepare('SELECT idRedacteur FROM redacteur WHERE pseudo = ?');
                 $select_stmt->bindValue(1, $_SESSION['pseudo'], PDO::PARAM_STR);
