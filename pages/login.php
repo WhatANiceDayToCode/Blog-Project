@@ -18,13 +18,15 @@
 
             if (array_key_exists('pseudo', $_POST) && array_key_exists('password', $_POST)) 
             {
-                if ($_POST['pseudo'] != "" && $_POST['password'] != "") 
+                if (trim($_POST['pseudo']) != "" && trim($_POST['password']) != "") 
                 {
+                    $pseudo = strip_tags(trim($_POST['pseudo']));
+
                     $select_stmt = $objPdo->prepare('SELECT * FROM redacteur WHERE (pseudo = ? OR adresseMail = ?) AND motDePasse = ?');
 
-                    $select_stmt->bindValue(1, trim($_POST['pseudo']), PDO::PARAM_STR);
-                    $select_stmt->bindValue(2, trim($_POST['pseudo']), PDO::PARAM_STR);
-                    $select_stmt->bindValue(3, trim($_POST['password']), PDO::PARAM_STR);
+                    $select_stmt->bindValue(1, $pseudo, PDO::PARAM_STR);
+                    $select_stmt->bindValue(2, $pseudo, PDO::PARAM_STR);
+                    $select_stmt->bindValue(3, strip_tags(trim($_POST['password'])), PDO::PARAM_STR);
                     $select_stmt->execute();
 
                     $value = $select_stmt->fetchAll();
