@@ -96,6 +96,7 @@
                             echo ('<div>Le '.$dateSujet.'</div>');
                         echo ('</div>');
                         echo ('<div class="subject">' . $sujet['texteSujet'].'</div>');
+                        
                         //Bouton pour supprimer le sujet uniquement si l'on est connecté
                         if ($connecte && $_SESSION['pseudo'] == $sujet['pseudo']) 
                         {
