@@ -43,7 +43,7 @@
                         $insert_stmt->bindValue(1, $nom, PDO::PARAM_STR);
                         $insert_stmt->bindValue(2, $prenom, PDO::PARAM_STR);
                         $insert_stmt->bindValue(3, $mail, PDO::PARAM_STR);
-                        $insert_stmt->bindValue(4, $mail, PDO::PARAM_STR);
+                        $insert_stmt->bindValue(4, $pseudo, PDO::PARAM_STR);
                         $insert_stmt->bindValue(5, $password, PDO::PARAM_STR);
                         
                         $insert_stmt->execute();
